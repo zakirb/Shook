@@ -9,7 +9,6 @@ shooksite/frontend/migrations/__pycache__
 shooksite/shook/migrations/__pycache__
 shooksite/frontend/static/frontend/main.js
 
-
 ### OSX ###
 .DS_Store
 .AppleDouble

@@ -6,6 +6,7 @@ import Form from "./Form";
 import Tester from "./Test";
 import Home from "./Home";
 import Nav from "./Nav";
+import Profile from "./Profile";
 import auth from '../auth';
 import Login from './Login';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -25,9 +26,7 @@ const App = () => (
       <Nav />
       <Route path = "/login/" component={Login} />
       <Route path='/' component={Home} onEnter={requireAuth} />
-
-
-
+      <Route path = "/profile" component={Profile} />
       {/* <DataProvider endpoint="api/shook/"
                     render={(data) => <Table data={data} />} /> */}
       {/* <Form endpoint="api/shook/" /> */}
