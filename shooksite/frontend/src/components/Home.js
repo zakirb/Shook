@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {Row, Col, Button, Icon} from "react-materialize";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class Home extends Component {
   render() {
@@ -10,7 +11,7 @@ class Home extends Component {
                 <p>Hero image goes here</p>
               </div>
               <div>
-                <p>This will be a link to Login</p>
+                <Link to='/login/'><p>This will be a link to Login</p></Link>
               </div>
               <div>
                 <p>This will be a link to Signup</p>

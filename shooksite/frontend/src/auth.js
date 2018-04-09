@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const Auth = {
-    login: function(username, pass, cb) {
+const auth = {
+    login: function(username, password, cb) {
         if (localStorage.token) {
             if (cb) cb(true)
             return
         }
-        this.getToken(username, pass, (res) => {
+        this.getToken(username, password, (res) => {
             if (res.authenticated) {
                 localStorage.token = res.token
                 if (cb) cb(true)
@@ -24,22 +24,21 @@ const Auth = {
         return !!localStorage.token
     },
 
-    getToken: function(username, pass, cb) {
-        $.ajax({
-            type: 'POST',
+    getToken: function(username, password, cb) {
+        axios({
+            method: 'POST',
             url: '/api/obtain-auth-token/',
             data: {
                 username: username,
-                password: pass
-            },
-            success: function(res){
-                cb({
-                    authenticated: true,
-                    token: res.token
-                })
-            }
-        })
-    },
+                password: password
+            }}).then((response) => {
+              console.log(response)
+              cb({
+                  authenticated: true,
+                  token: response.data.token
+              })
+            })
+        }
 }
 
-export default Auth;
+export default auth;
