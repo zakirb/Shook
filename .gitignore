@@ -2,6 +2,7 @@ node_modules
 shooksite/frontend/__pycache__
 shooksite/shook/__pycache__
 shooksite/shooksite/__pycache__
+shooksite/frontend/static/frontend/main.js
 
 ### OSX ###
 .DS_Store
