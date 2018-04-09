@@ -6,21 +6,32 @@ import Form from "./Form";
 import Tester from "./Test";
 import Home from "./Home";
 import Nav from "./Nav";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Profile from "./Profile";
+import auth from '../auth';
+import Login from './Login';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
+function requireAuth(nextState, replace) {
+    if (!auth.loggedIn()) {
+        replace({
+            pathname:'/login/',
+            state: {nextPathname: '/'}
+        })
+    }
+}
 
 const App = () => (
-  <Router>
-    <div>
+    <Router history={Router.browserHistory}>
+      <div>
       <Nav />
-      <Route exact path = "/" component={Home} />
+      <Route path = "/login/" component={Login} />
+      <Route path='/' component={Home} onEnter={requireAuth} />
       <Route path = "/profile" component={Profile} />
-      <DataProvider endpoint="api/shook/"
-                    render={(data) => <Table data={data} />} />
-      <Form endpoint="api/shook/" />
-    </div>
-  </Router>
+      {/* <DataProvider endpoint="api/shook/"
+                    render={(data) => <Table data={data} />} /> */}
+      {/* <Form endpoint="api/shook/" /> */}
+      </div>
+    </Router>
 );
 
 const wrapper = document.getElementById("app");
