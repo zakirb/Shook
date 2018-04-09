@@ -6,8 +6,9 @@ class Form extends Component {
     endpoint: PropTypes.string.isRequired
   };
   state = {
-    username: "",
-    password:""
+    name: "",
+    email: "",
+    message: ""
   };
 
   handleChange = e => {
@@ -16,50 +17,63 @@ class Form extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { username, password } = this.state;
-    const user_login = { username, password };
+    const { name, email, message } = this.state;
+    const lead = { name, email, message };
     const conf = {
       method: "post",
-      body: JSON.stringify(user_login),
+      body: JSON.stringify(lead),
       headers: new Headers({ "Content-Type": "application/json" })
     };
     fetch(this.props.endpoint, conf).then(response => console.log(response));
   };
 
   render() {
-    const { username, password } = this.state;
+    const { name, email, message } = this.state;
     return (
       <div className="column">
         <form onSubmit={this.handleSubmit}>
           <div className="field">
-            <label className="label">Username</label>
+            <label className="label">Name</label>
             <div className="control">
               <input
                 className="input"
                 type="text"
-                name="username"
+                name="name"
                 onChange={this.handleChange}
-                value={username}
+                value={name}
                 required
               />
             </div>
           </div>
           <div className="field">
-            <label className="label">Password</label>
+            <label className="label">Email</label>
+            <div className="control">
+              <input
+                className="input"
+                type="email"
+                name="email"
+                onChange={this.handleChange}
+                value={email}
+                required
+              />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label">Message</label>
             <div className="control">
               <textarea
                 className="textarea"
                 type="text"
-                name="password"
+                name="message"
                 onChange={this.handleChange}
-                value={password}
+                value={message}
                 required
               />
             </div>
           </div>
           <div className="control">
             <button type="submit" className="button is-info">
-              Login
+              Send message
             </button>
           </div>
         </form>
