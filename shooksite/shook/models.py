@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 class Lead(models.Model):
     name = models.CharField(max_length=100)
@@ -8,12 +10,18 @@ class Lead(models.Model):
 
 class Shake(models.Model):
     proposal = models.CharField(max_length=100)
-    proposer = models.ForeignKey(User, on_delete=models.CASCADE
-    accepter = models.ForeignKey(User)
+    proposer = models.ForeignKey(User, related_name='proposer', on_delete=models.CASCADE)
+    accepter = models.ForeignKey(User, related_name='accepter', on_delete=models.CASCADE)
     description = models.CharField(max_length=250)
     type = models.CharField(max_length=100)
-    proposed_command =
-    proposed_delete =
-    accepted_delete =
+    created_at = models.DateTimeField(auto_now_add=True)
+    finished_date = models.DateTimeField()
+    proposed_accepted = models.BooleanField(default=False)
+    proposed_delete = models.BooleanField(default=False)
+    accepted_delete = models.BooleanField(default=False)
+    proposed_complete = models.BooleanField(default=False)
+    accepted_complete = models.BooleanField(default=False)
+    status = models.CharField(max_length=100) # proposed, accepted, pending, complete, broke
 
-    status = models.Charfield(max_length=250) # proposed, accepted, pending, complete, broke
+    def __str(self):
+        return self.username
