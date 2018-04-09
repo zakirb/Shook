@@ -1,0 +1,15 @@
+#app {
+  font-family: 'Chivo', sans-serif;
+}
+
+#navbar {
+  background-color: gray;
+}
+
+#home-link {
+  z-index: 10;
+}
+
+.navlinks {
+  display: inline-block;
+}
