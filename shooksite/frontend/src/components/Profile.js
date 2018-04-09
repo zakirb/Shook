@@ -1,19 +1,23 @@
 import React, { Component } from "react";
 import {Row, Col, Button, Icon} from "react-materialize";
 
-class Home extends Component {
+class Profile extends Component {
   render() {
     return (
       <Row>
-        <Col s={12}>
+        <Col s={4}>
           <div>
-            <p>Hero image goes here</p>
+            <p>User's Shakes:</p>
           </div>
+        </Col>
+        <Col s={4}>
           <div>
-            <p>This will be a link to Login</p>
+            <p>Global Shakes:</p>
           </div>
+        </Col>
+        <Col s={4}>
           <div>
-            <p>This will be a link to Signup</p>
+            <p>User's photo can be uploaded here:</p>
           </div>
         </Col>
       </Row>
@@ -21,4 +25,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Profile;
