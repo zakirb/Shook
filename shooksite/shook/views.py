@@ -2,8 +2,13 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 from shook.models import Lead
-from shook.serializers import LeadSerializer
+from shook.serializers import LeadSerializer, UserSerializer
 from rest_framework import generics
+
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
+from rest_framework import viewsets
+from rest_framework.response import Response
 
 class LeadListCreate(generics.ListCreateAPIView):
     queryset = Lead.objects.all()
@@ -13,22 +18,12 @@ class LeadDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Lead.objects.all()
     serializer_class = LeadSerializer
 
-def login(request):
-    if request.method == "POST":
-        print(request.POST)
-    #     form = LoginForm(request.POST)
-    #     if form.is_valid():
-    #         u = form.cleaned_data['username']
-    #         p = form.cleaned_data['password']
-    #         user = authenticate(username = u, password = p)
-    #         if user is not None:
-    #             if user.is_active:
-    #                 login(request, user)
-    #                 return HttpResponseRedirect('/')
-    #             else:
-    #                 print('This account has been disabled')
-    #         else:
-    #             print('The username and/or password is incorrect')
-    # else:
-    #     form = LoginForm()
-    # return render(request, 'login.html', {'form':form})
+class UserViewVSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+    def retrieve(self, request, pk=None):
+        if pk == 'i':
+            return Response(UserSerializer(request.user,
+                context={'request':request}).data)
+        return super(UserViewSet, self).retrieve(request, pk)

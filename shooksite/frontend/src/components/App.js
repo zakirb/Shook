@@ -8,9 +8,8 @@ import Tester from "./Test";
 const App = () => (
   <div>
     <DataProvider endpoint="api/shook/"
-                  render={data => <Table data={data} />} />
-    <Form endpoint="api/shook/login" />
-    <Tester />
+                  render={(data, refresh) => <Table data={data} refresh={refresh} />} />
+    <Form endpoint="api/shook/" />
   </div>
 );
 
