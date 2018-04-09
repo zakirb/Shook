@@ -11,13 +11,13 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const App = () => (
   <div>
-    <Router>
+    {/*<Router>
       <Nav />
-      <Route exact path = "/" component={Home} />
+      <Route exact path = "/" component={Home} />*/}
       <DataProvider endpoint="api/shook/"
                     render={(data, refresh) => <Table data={data} refresh={refresh} />} />
       <Form endpoint="api/shook/" />
-    </Router>
+    {/* </Router> */}
   </div>
 );
 
