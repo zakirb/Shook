@@ -4,8 +4,6 @@ shooksite/shook/__pycache__
 shooksite/shooksite/__pycache__
 shooksite/frontend/static/frontend/main.js
 
-# Created by https://www.gitignore.io
-
 ### OSX ###
 .DS_Store
 .AppleDouble

@@ -4,14 +4,20 @@ import DataProvider from "./DataProvider";
 import Table from "./Table";
 import Form from "./Form";
 import Tester from "./Test";
+import Home from "./Home";
+import Nav from "./Nav";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 
 const App = () => (
   <div>
-    <DataProvider endpoint="api/shook/"
-                  render={(data) => <Table data={data} />} />
-    <Form endpoint="api/shook/" />
-
+    <Router>
+      <Nav />
+      <Route exact path = "/" component={Home} />
+      <DataProvider endpoint="api/shook/"
+                    render={(data, refresh) => <Table data={data} refresh={refresh} />} />
+      <Form endpoint="api/shook/" />
+    </Router>
   </div>
 );
 
