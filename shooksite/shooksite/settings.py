@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shook',
     'rest_framework',
+    'rest_framework.authtoken',
     'frontend'
 ]
 

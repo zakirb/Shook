@@ -3,12 +3,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from shook.models import Lead
 from shook.serializers import LeadSerializer, UserSerializer
-from rest_framework import generics
-
+from rest_framework import generics, permissions, viewsets
+from rest_framework.response import Response
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
-from rest_framework import viewsets
-from rest_framework.response import Response
+
 
 class LeadListCreate(generics.ListCreateAPIView):
     queryset = Lead.objects.all()
@@ -18,9 +17,10 @@ class LeadDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Lead.objects.all()
     serializer_class = LeadSerializer
 
-class UserViewVSet(viewsets.ModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = (permissions.IsAuthenticated,)
 
     def retrieve(self, request, pk=None):
         if pk == 'i':

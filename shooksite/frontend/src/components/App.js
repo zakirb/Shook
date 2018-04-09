@@ -8,6 +8,7 @@ import Home from "./Home";
 import Nav from "./Nav";
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
+
 const App = () => (
   <div>
     <Router>
