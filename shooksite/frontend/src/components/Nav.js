@@ -1,11 +1,15 @@
 import React from "react";
-import { Navbar, NavItem, Icon, Dropdown, Button } from 'react-materialize';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Navbar, NavItem, Icon, Dropdown, Button } from "react-materialize";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const Nav = props => {
+const Nav = () => {
   return (
-
-    <div>NavBar</div>
+    <div>
+      <Navbar brand="Shook" right id="navbar">
+        <Link id="home-link" className="navlinks" to="/">Home</Link>
+        <Link id="profile-link" className="navlinks" to="/profile">Profile</Link>
+      </Navbar>
+    </div>
   )
 }
 
