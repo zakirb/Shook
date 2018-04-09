@@ -8,6 +8,7 @@ class Lead(models.Model):
     message = models.CharField(max_length=300)
     created_at = models.DateTimeField(auto_now_add=True)
 
+
 class Shake(models.Model):
     proposal = models.CharField(max_length=100)
     proposer = models.ForeignKey(User, related_name='proposer', on_delete=models.CASCADE)
@@ -25,3 +26,4 @@ class Shake(models.Model):
 
     def __str(self):
         return self.username
+
