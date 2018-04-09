@@ -7,7 +7,7 @@ class Profile extends Component {
       <Row>
         <Col s={4}>
           <div>
-            <p>User\'s Shakes:</p>
+            <p>User's Shakes:</p>
           </div>
         </Col>
         <Col s={4}>
@@ -17,7 +17,7 @@ class Profile extends Component {
         </Col>
         <Col s={4}>
           <div>
-            <p>User\'s photo can be uploaded here:</p>
+            <p>User's photo can be uploaded here:</p>
           </div>
         </Col>
       </Row>
