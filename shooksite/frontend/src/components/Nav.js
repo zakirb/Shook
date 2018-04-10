@@ -8,6 +8,7 @@ const Nav = () => {
       <Navbar brand="Shook" right id="navbar">
         <Link id="home-link" className="navlinks" to="/">Home</Link>
         <Link id="profile-link" className="navlinks" to="/profile">Profile</Link>
+        <Link id="shakelist-link" className="navlinks" to="/shakelist">ShakeList</Link>
       </Navbar>
     </div>
   )
