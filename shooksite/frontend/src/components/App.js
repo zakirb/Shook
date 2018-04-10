@@ -11,6 +11,7 @@ import auth from '../auth';
 import Login from './Login';
 import SignUp from './SignUp';
 import ShakeList from './ShakeList';
+import ProposalForm from './ProposalForm';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
 const App = () => (
@@ -23,7 +24,7 @@ const App = () => (
         (auth.loggedIn()) ? (
           <Redirect to="/profile"/>
         ) : (
-          <Home/>
+          <ProposalForm/>
         ))} />
       <Route path = "/profile" component={Profile} />
       <Route path = '/shakelist' component={ShakeList} />
