@@ -12,7 +12,9 @@ class Lead(models.Model):
 class Shake(models.Model):
     proposal = models.CharField(max_length=100)
     proposer = models.ForeignKey(User, related_name='proposer', on_delete=models.CASCADE)
-    acceptor = models.ForeignKey(User, related_name='accepter', on_delete=models.CASCADE)
+
+    acceptor = models.ForeignKey(User, related_name='acceptor', on_delete=models.CASCADE)
+
     description = models.CharField(max_length=250)
     type = models.CharField(max_length=100)
     # created_at = models.DateTimeField(auto_now_add=True)
