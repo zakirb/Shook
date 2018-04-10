@@ -15,12 +15,12 @@ class Home extends Component {
             <Hero />
               <div>
                 <Link to='/login/'>
-                  <Button waves='light' node='a'> Login </Button>
+                  <Button waves='light'> Login </Button>
                 </Link>
               </div>
               <div>
                 <Link to='/signup/'>
-                  <Button waves='light' node='a'> Signup </Button>
+                  <Button waves='light'> Signup </Button>
                 </Link>
               </div>
           </Col>

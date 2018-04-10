@@ -32,8 +32,12 @@ const auth = {
         data: request
       })
       .then((response) => {
-        console.log('SIGNED UP', response)
-        cb(response)
+        console.log(response)
+        if (response.headers.authorization) {
+          localStorage.token = response.headers.authorization
+          console.log('AUTHENTICATED, TOKEN STORED IN LOCAL STORAGE')
+          cb({authenticated:true})
+        }
       })
       .catch( (err) => {
         console.log('err', err)
