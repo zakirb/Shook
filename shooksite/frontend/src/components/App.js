@@ -18,8 +18,8 @@ const App = () => (
     <Router history={Router.browserHistory}>
       <div>
       <Nav />
-      <Route path = "/login/" component={Login} />
-      <Route path = '/login/' component={SignUp} />
+      <Route path = "/login" component={Login} />
+      <Route path = '/signup' component={SignUp} />
       <Route exact path="/" render={() => (
         (auth.loggedIn()) ? (
           <Redirect to="/profile"/>

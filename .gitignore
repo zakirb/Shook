@@ -7,6 +7,8 @@ shooksite/shooksite/__pycache__
 shooksite/frontend/migrations/__pycache__
 shooksite/shook/migrations/__pycache__
 shooksite/frontend/static/frontend/main.js
+shooksite/frontend/migrations/
+shooksite/shook/migrations/
 
 ### OSX ###
 .DS_Store

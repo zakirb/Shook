@@ -22,7 +22,18 @@ class SignUp extends Component {
       const { first_name, last_name, username, email, password } = this.state
       const request = { first_name, last_name, username, email, password }
       auth.signUp(request, (response) => {
-        console.log(response)
+        if (response.authenticated) {
+          this.setState({
+            first_name:"",
+            last_name:"",
+            username: "",
+            email: "",
+            password: ""
+          })
+          this.props.history.replace('/')
+        } else {
+          console.log('NOT AUTHENTICATED')
+        }
       })
   }
 

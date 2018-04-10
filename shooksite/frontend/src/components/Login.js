@@ -18,7 +18,7 @@ class Login extends Component {
       e.preventDefault()
       auth.login(this.state.username, this.state.password, (loggedIn) => {
           if (loggedIn) {
-              // console.log(this.props.history.replace('/profile/'))
+              this.props.history.replace('/profile/')
               console.log('LOGGED IN, history is above')
           }
       })
