@@ -19,24 +19,25 @@ class ProposalForm extends Component {
   };
 
   handleSubmit = e => {
-    e.preventDefault();
     let token = localStorage.token
+    e.preventDefault();
     const { proposer, acceptor, description, type, proposal } = this.state;
     const Shake = { proposer, acceptor, description, type, proposal };
     const conf = {
-      method: 'post',
+      method: "post",
       url: '/api/shakes/',
       data: Shake,
       headers: {
         Authorization: token
-       }
+      }
     };
-    axios(conf).then((res) => {
-      console.log('SUCCESS');
+    axios(conf).then( (res) => {
+      console.log('SUCCESS', res)
     })
-    .catch((err) => {
+    .catch( (err) => {
       console.log('ERROR', err)
     })
+
   };
 
 
@@ -55,6 +56,13 @@ class ProposalForm extends Component {
           </div>
 
           <div className="field">
+            <label className="label">acceptor id</label>
+            <div className="control">
+              <input className="input" type="text" name="acceptor" onChange={this.handleChange} value={acceptor} required />
+            </div>
+          </div>
+
+          <div className="field">
             <label className="label">proposal</label>
             <div className="control">
               <textarea className="textarea" type="text" name="proposal" onChange={this.handleChange} value={proposal} required />
@@ -64,7 +72,7 @@ class ProposalForm extends Component {
           <div className="field">
             <label className="label">type</label>
             <div className="control">
-              <textarea className="text" type="text" name="type" onChange={this.handleChange} value={type} required />
+              <textarea className="textarea" type="text" name="type" onChange={this.handleChange} value={type} required />
             </div>
           </div>
 
@@ -75,16 +83,9 @@ class ProposalForm extends Component {
             </div>
           </div>
 
-          <div className="field">
-            <label className="label">acceptor id</label>
-            <div className="control">
-              <input className="input" type="text" name="acceptor" onChange={this.handleChange} value={acceptor} required />
-            </div>
-          </div>
-
           <div className="control">
             <button type="submit" className="button is-info">
-              Create Shake
+              Send message
             </button>
           </div>
 

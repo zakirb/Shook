@@ -20,7 +20,11 @@ const App = () => (
       <Nav />
       <Route path = "/login" component={Login} />
       <Route path = '/signup' component={SignUp} />
+<<<<<<< HEAD
       <Route path = '/' component={ProposalForm} />
+=======
+      <Route path='/' component={ProposalForm} />
+>>>>>>> c4b34c1d1a3f3d251969d18716a8219845e52641
       <Route exact path="/" render={() => (
         (auth.loggedIn()) ? (
           <Redirect to="/profile"/>
