@@ -38,4 +38,4 @@ class UserSerializer(serializers.ModelSerializer):
 class ShakeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Shake
-        fields = ('proposal', 'proposer', 'accepter', 'description', 'type', 'proposer_status', 'acceptor_statues', 'status')
+        fields = ('proposal', 'proposer', 'acceptor', 'description', 'type', 'proposer_status', 'acceptor_status', 'status')

@@ -3,29 +3,17 @@ import { Navbar, NavItem, Icon, Dropdown, Button } from "react-materialize";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import './App.css';
 
-class TestCall extends Component {
-  constructor(props) {
-    super()
-    this.state = {
-    }
-  }
+const TestCall = ({data}) => {
 
+  console.log({data})
 
-  render() {
-
-
-
-    return (
-      <div className='shake-item'>
-        <h1>HELLO</h1>
-        <p>{props.data}</p>
-        <p>this is below the props</p>
-      </div>
-    )
-
-  }
-
-
+  return (
+    <div className='shake-item'>
+      <h1>HELLO</h1>
+      <p>{data}</p>
+      <p>this is below the props</p>
+    </div>
+  )
 
 }
 
