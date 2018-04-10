@@ -10,6 +10,7 @@ import Profile from "./Profile";
 import auth from '../auth';
 import Login from './Login';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import ShakeList from './ShakeList';
 
 function requireAuth(nextState, replace) {
     if (!auth.loggedIn()) {
@@ -27,6 +28,7 @@ const App = () => (
       <Route path = "/login/" component={Login} />
       <Route path='/' component={Home} onEnter={requireAuth} />
       <Route path = "/profile" component={Profile} />
+      <Route path = '/shakelist' component={ShakeList} />
       {/* <DataProvider endpoint="api/shook/"
                     render={(data) => <Table data={data} />} /> */}
       {/* <Form endpoint="api/shook/" /> */}
