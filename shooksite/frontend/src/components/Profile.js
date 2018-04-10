@@ -4,7 +4,7 @@ import {Row, Col, Button, Icon} from "react-materialize";
 class Profile extends Component {
   render() {
     return (
-      <Row>
+      <Row className='center'>
         <Col s={4}>
           <div>
             <p>User's Shakes:</p>
