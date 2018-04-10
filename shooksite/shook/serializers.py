@@ -2,7 +2,7 @@ from rest_framework import serializers
 from shook.models import Lead, Shake
 from django.contrib.auth.models import User
 from rest_framework.validators import UniqueValidator
-from rest_framework.authtoken.models import Token
+
 
 class LeadSerializer(serializers.ModelSerializer):
     class Meta:
@@ -27,6 +27,7 @@ class UserSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(validated_data['username'], validated_data['email'],
              validated_data['password'])
         user.first_name = validated_data['first_name']
+        print(user.first_name)
         user.last_name = validated_data['last_name']
         return user
 
