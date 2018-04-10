@@ -9,6 +9,7 @@ import Nav from "./Nav";
 import Profile from "./Profile";
 import auth from '../auth';
 import Login from './Login';
+import SignUp from './SignUp';
 import ShakeList from './ShakeList';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
@@ -17,6 +18,7 @@ const App = () => (
       <div>
       <Nav />
       <Route path = "/login/" component={Login} />
+      <Route path = '/login/' component={SignUp} />
       <Route exact path="/" render={() => (
         (auth.loggedIn()) ? (
           <Redirect to="/profile"/>

@@ -24,6 +24,22 @@ const auth = {
         return !!localStorage.token
     },
 
+    signUp: function(request, cb) {
+      console.log(request)
+      axios({
+        method: 'POST',
+        url: '/api/user/create/',
+        data: request
+      })
+      .then((response) => {
+        console.log('SIGNED UP', response)
+        cb(response)
+      })
+      .catch( (err) => {
+        console.log('err', err)
+      })
+    },
+
     getToken: function(username, password, cb) {
         axios({
             method: 'POST',
