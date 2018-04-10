@@ -26,8 +26,8 @@ class Profile extends Component {
           <Button floating icon='publish' className='green'/>
           <Button floating icon='attach_file' className='blue'/>
         </Button>
-        <DataProvider endpoint="api/shakes/"
-                      render={(data) => <TestCall data={data} />} />
+        {/* <DataProvider endpoint="api/shakes/"
+                      render={(data) => <TestCall data={data} />} /> */}
       </div>
     )
   }
