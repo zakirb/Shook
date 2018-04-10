@@ -25,9 +25,7 @@ class Home extends Component {
                 <Button waves='light'> Signup </Button>
               </Link>
             </div>
-            <DataProvider endpoint="api/shakes/"
-                          render={(data) => <TestCall data={data} />} />
-            <TestCall />
+            
         </Col>
       </Row>
     )
