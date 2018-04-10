@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.shake-item {
+  color: blue;
+  height: 3vw;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.shake-list {
+  overflow: scroll;
+  height: 200px;
+}

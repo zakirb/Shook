@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {Row, Col, Button, Icon} from "react-materialize";
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import Hero from './Hero';
 
 class Home extends Component {
   constructor(props) {
@@ -10,15 +11,17 @@ class Home extends Component {
   render() {
     return (
       <Row>
-          <Col s={12}>
+          <Col s={12} className='center'>
+            <Hero />
               <div>
-                <p>Hero image goes here</p>
+                <Link to='/login/'>
+                  <Button waves='light' node='a'> Login </Button>
+                </Link>
               </div>
               <div>
-                <Link to='/login/'><p>This will be a link to Login</p></Link>
-              </div>
-              <div>
-                <p>This will be a link to Signup</p>
+                <Link to='/signup/'>
+                  <Button waves='light' node='a'> Signup </Button>
+                </Link>
               </div>
           </Col>
       </Row>
