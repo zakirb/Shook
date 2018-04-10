@@ -24,7 +24,7 @@ const App = () => (
         (auth.loggedIn()) ? (
           <Redirect to="/profile"/>
         ) : (
-          <ProposalForm/>
+          <Home/>
         ))} />
       <Route path = "/profile" component={Profile} />
       <Route path = '/shakelist' component={ShakeList} />

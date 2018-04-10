@@ -18,7 +18,7 @@ class TestCall extends Component {
     return (
       <div className='shake-item'>
         <h1>HELLO</h1>
-        <p>{props.data}</p>
+        <p>{this.props.data}</p>
         <p>this is below the props</p>
       </div>
     )
