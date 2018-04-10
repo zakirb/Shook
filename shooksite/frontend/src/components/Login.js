@@ -18,7 +18,7 @@ class Login extends Component {
       e.preventDefault()
       auth.login(this.state.username, this.state.password, (loggedIn) => {
           if (loggedIn) {
-              console.log(this.props.history.replace('/profile/'))
+              // console.log(this.props.history.replace('/profile/'))
               console.log('LOGGED IN, history is above')
           }
       })
@@ -30,7 +30,7 @@ class Login extends Component {
       <form onSubmit={this.handleSubmit}>
           <input type="text" name='username' placeholder="username" value={username} onChange={this.handleChange}/>
           <input type="password" name='password' placeholder="password" value={password} onChange={this.handleChange}/>
-          <input type="submit" />
+          <input type="submit" value='Log In' />
       </form>
     )
   }

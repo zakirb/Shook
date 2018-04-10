@@ -13,6 +13,7 @@ urlpatterns = router.urls
 urlpatterns += [
     path('shook/', views.LeadListCreate.as_view() ),
     path('<int:pk>/', views.LeadDetail.as_view()),
+    path('user/create/', views.CreateUser.as_view()),
     re_path(r'^obtain-auth-token/$', obtain_auth_token),
 ]
 
