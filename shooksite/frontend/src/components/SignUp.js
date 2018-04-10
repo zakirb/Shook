@@ -30,7 +30,7 @@ class SignUp extends Component {
             email: "",
             password: ""
           })
-          //redirect to profile
+          this.props.history.replace('/')
         } else {
           console.log('NOT AUTHENTICATED')
         }

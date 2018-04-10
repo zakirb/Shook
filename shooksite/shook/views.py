@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
 from django.http import HttpResponse
-from shook.models import Lead
-from shook.serializers import LeadSerializer, UserSerializer
+from shook.models import Lead, Shake
+from shook.serializers import LeadSerializer, UserSerializer, ShakeSerializer
 from rest_framework import generics, permissions, viewsets, status
 from rest_framework.response import Response
 from django.contrib.auth.models import User
@@ -14,6 +14,10 @@ from rest_framework.authtoken.models import Token
 class LeadListCreate(generics.ListCreateAPIView):
     queryset = Lead.objects.all()
     serializer_class = LeadSerializer
+
+class ShakeViewSet(generics.ListCreateAPIView):
+    queryset = Shake.objects.all()
+    serializer_class = ShakeSerializer
 
 class LeadDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Lead.objects.all()
