@@ -14,13 +14,13 @@ class Home extends Component {
           <Col s={12} className='center'>
             <Hero />
               <div>
-                <Link to='/login/'>
-                  <Button waves='light' node='a'> Login </Button>
+                <Link to='/login'>
+                  <Button waves='light'> Login </Button>
                 </Link>
               </div>
               <div>
-                <Link to='/signup/'>
-                  <Button waves='light' node='a'> Signup </Button>
+                <Link to='/signup'>
+                  <Button waves='light'> Signup </Button>
                 </Link>
               </div>
           </Col>
