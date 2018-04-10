@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import {Row, Col, Button, Icon} from "react-materialize";
 import ShakeList from './ShakeList';
 import UserBadge from './UserBadge';
+import DataProvider from './DataProvider';
+import TestCall from './TestCall';
 
 class Profile extends Component {
   render() {
@@ -24,6 +26,8 @@ class Profile extends Component {
           <Button floating icon='publish' className='green'/>
           <Button floating icon='attach_file' className='blue'/>
         </Button>
+        <DataProvider endpoint="api/shakes/"
+                      render={(data) => <TestCall data={data} />} />
       </div>
     )
   }

@@ -11,7 +11,7 @@ router.register(r'users', views.UserViewSet)
 urlpatterns = router.urls
 
 urlpatterns += [
-    path('shook/', views.LeadListCreate.as_view() ),
+    path('leads/', views.LeadListCreate.as_view() ),
     path('shakes/', views.ShakeViewSet.as_view()),
     path('<int:pk>/', views.LeadDetail.as_view()),
     path('user/create/', views.CreateUser.as_view()),
