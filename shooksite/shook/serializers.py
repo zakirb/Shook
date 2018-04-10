@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from shook.models import Lead
+from shook.models import Lead, Shake
 from django.contrib.auth.models import User
 from rest_framework.validators import UniqueValidator
 from rest_framework.authtoken.models import Token
@@ -33,3 +33,8 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id','username', 'first_name', 'last_name', 'email', 'password')
+
+class ShakeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Shake
+        fields = ('proposal', 'proposer', 'accepter', 'description', 'type', 'proposer_status', 'acceptor_statues', 'status')
