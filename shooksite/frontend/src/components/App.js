@@ -9,24 +9,20 @@ import Nav from "./Nav";
 import Profile from "./Profile";
 import auth from '../auth';
 import Login from './Login';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import ShakeList from './ShakeList';
-
-function requireAuth(nextState, replace) {
-    if (!auth.loggedIn()) {
-        replace({
-            pathname:'/login/',
-            state: {nextPathname: '/'}
-        })
-    }
-}
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
 const App = () => (
     <Router history={Router.browserHistory}>
       <div>
       <Nav />
       <Route path = "/login/" component={Login} />
-      <Route path='/' component={Home} onEnter={requireAuth} />
+      <Route exact path="/" render={() => (
+        (auth.loggedIn()) ? (
+          <Redirect to="/profile"/>
+        ) : (
+          <Home/>
+        ))} />
       <Route path = "/profile" component={Profile} />
       <Route path = '/shakelist' component={ShakeList} />
       {/* <DataProvider endpoint="api/shook/"
