@@ -12,8 +12,10 @@ import Login from './Login';
 import SignUp from './SignUp';
 import ShakeList from './ShakeList';
 import ProposalForm from './ProposalForm';
+import StatusEditForm from './StatusEditForm';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import ShakeDetail from './ShakeDetail';
+
 
 const App = () => (
     <Router history={Router.browserHistory}>
@@ -21,7 +23,8 @@ const App = () => (
       <Nav />
       <Route path = "/login" component={Login} />
       <Route path = '/signup' component={SignUp} />
-      <Route path = '/' component={ProposalForm} />
+      <Route path='/' component={ProposalForm} />
+      {/*<Route path='/' component={StatusEditForm} />*/}
       <Route exact path="/" render={() => (
         (auth.loggedIn()) ? (
           <Redirect to="/profile"/>
