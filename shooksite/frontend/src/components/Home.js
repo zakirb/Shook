@@ -17,12 +17,12 @@ class Home extends Component {
           <Hero />
             <div>
               <Link to='/login/'>
-                <Button className='button' waves='light'> Login </Button>
+                <Button waves='light'> Login </Button>
               </Link>
             </div>
             <div>
               <Link to='/signup/'>
-                <Button className='button' waves='light'> Signup </Button>
+                <Button waves='light'> Signup </Button>
               </Link>
             </div>
 
