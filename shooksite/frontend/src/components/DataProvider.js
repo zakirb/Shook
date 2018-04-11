@@ -16,7 +16,7 @@ class DataProvider extends Component {
 
   componentDidMount() {
     let endpoint
-    if (this.props.params.id) {
+    if (this.props.params) {
       endpoint = this.props.endpoint + `${this.props.params.id}`
     } else {
       endpoint = this.props.endpoint
