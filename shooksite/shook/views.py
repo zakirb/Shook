@@ -30,13 +30,7 @@ class ShakeViewSet(generics.ListCreateAPIView):
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # def list(self, request):
-    #     page = self.paginate_queryset(queryset)
-    #     if page is not None:
-    #         serializer = self.get_serializer(page, many=True)
-    #         return self.get_paginated_response(serializer.data)
-    #     serializer = self.get_serializer(queryset, many=True)
-    #     return Response(serializer.data)
+
 class ShakeStatusEdit(generics.ListCreateAPIView):
     queryset = Shake.objects.all()
     serializer_class = ShakeSerializer
@@ -49,6 +43,10 @@ class ShakeStatusEdit(generics.ListCreateAPIView):
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class ShakeDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Shake.objects.all()
+    serializer_class = ShakeSerializer
 
 
 class LeadDetail(generics.RetrieveUpdateDestroyAPIView):
