@@ -8,10 +8,6 @@ const ShakeItem = data => {
   console.log('this is in the shake item', data)
   console.log('this is the user in the shake item', data.user)
 
-  // let shakes = data.data.map( (item, index) => {
-  //   return (<ShakeDetail data={item} key={index} user={data.user} />)
-  // })
-
   // var name = function()
   return (
     <CollapsibleItem className='shake-item' header={data.data.proposer + ' vs. ' + data.data.acceptor} icon='public'>
