@@ -15,7 +15,8 @@ By [Zakir Butte](http://www.github.com/zakirb), [Scott Molsness](https://github.
 ***
 ### User Stories
 
-1) Mike's User Story
+## Accountability Amongst Your Social Groups
+Jackie is mid twenties and hangs with a very unreliable and immature crowd.  She is constantly dealing with the irresponsibilities of her friends. Examples being: paying for friends when they “forgot” their wallet, waiting around when they don’t remember having scheduled a meetup or dealing with statements that are just plain wrong.  Shook allows her to log those interactions with the ‘friends’ acknowledgement, allowing Jackie to prove her case whenever a disagreement from the past arises.  Jackie can gain a peace of mind over the argument and move on to more enjoyable endeavors.
 * Mike's Acceptance Criteria - blah
 
 2) Zakir's User Story

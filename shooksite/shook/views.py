@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
+from rest_framework.generics import RetrieveUpdateDestroyAPIView
 
 from rest_framework.decorators import api_view, permission_classes
 
@@ -31,11 +32,20 @@ class ShakeViewSet(generics.ListCreateAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+
 class ShakeStatusEdit(generics.ListCreateAPIView):
+
     queryset = Shake.objects.all()
     serializer_class = ShakeSerializer
 
-    def post(self, request):
+    # def put(self, request, *args, **kwargs):
+    #     return self.update(request, *args, **kwargs)
+
+
+    # queryset = Shake.objects.all()
+    # serializer_class = ShakeSerializer
+    #
+    def put(self, request):
         serializer = ShakeSerializer(data=request.data)
         if serializer.is_valid():
             shake = serializer.save()
