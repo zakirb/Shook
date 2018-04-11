@@ -28,6 +28,7 @@ class Profile extends Component {
         </Button>
         {/* <DataProvider endpoint="api/shakes/"
                       render={(data) => <TestCall data={data} />} /> */}
+        <TestCall />
       </div>
     )
   }

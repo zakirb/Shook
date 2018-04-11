@@ -9,7 +9,9 @@ from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
-from rest_framework.mixins import UpdateModelMixin
+
+from rest_framework.decorators import api_view, permission_classes
+
 
 class LeadListCreate(generics.ListCreateAPIView):
     queryset = Lead.objects.all()
@@ -80,3 +82,11 @@ class CreateUser(APIView):
                 return Response(serializer.data, status=status.HTTP_201_CREATED, headers=header)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+@permission_classes((permissions.IsAuthenticated,))
+def getToken(request):
+    serializer = UserSerializer(request.user)
+    if serializer:
+        return Response(serializer.data)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
