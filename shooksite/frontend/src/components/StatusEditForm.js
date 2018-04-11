@@ -14,6 +14,7 @@ class StatusEditForm extends Component {
 
 
   componentWillReceiveProps (newProps) {
+    console.log(newProps)
     this.setState({
       proposer_status: newProps.data[0].proposer_status,
       acceptor_status: newProps.data[0].acceptor_status
@@ -25,6 +26,7 @@ class StatusEditForm extends Component {
   };
 
   handleSubmit = e => {
+    let token = localStorage.token
     e.preventDefault();
     const { proposer_status, acceptor_status } = this.state;
     const  shakeStatus = { proposer_status, acceptor_status };
@@ -45,23 +47,27 @@ class StatusEditForm extends Component {
   };
 
   render() {
-
+    const { proposer_status, acceptor_status } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <Row>
-          <Input s={12} type='select' label="Materialize Select" defaultValue='proposed'>
-            <option value='proposed'>proposed</option>
-            <option value='complete'>complete</option>
-            <option value='break'>break</option>
+          <Input s={12} type='select' label="Materialize Select" name="acceptor_value" onChange={this.handleChange} defaultValue={'proposed'}>
+            <option value={'proposed'}>proposed</option>
+            <option value={'complete'}>complete</option>
+            <option value={'break'}>break</option>
           </Input>
         </Row>
+        <Row className="control">
+          <button type="submit" className="button is-info">Edit Status</button>
+        </Row >
+
       </form>
     );
 
     {/*return (
       <form onSubmit={this.handleSubmit}>
         <Row>
-          <Input s={12} type='select' label="Materialize Select" defaultValue='pending'>
+          <Input s={12} type='select' label="Materialize Select" name="acceptor_value" onChange={this.handleChange} defaultValue='pending'>
             <option value={accept}>accept</option>
             <option value={complete}>complete</option>
             <option value={break}>break</option>

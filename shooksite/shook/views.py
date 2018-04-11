@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
+from rest_framework.generics import RetrieveUpdateDestroyAPIView
 
 from rest_framework.decorators import api_view, permission_classes
 
@@ -37,18 +38,25 @@ class ShakeViewSet(generics.ListCreateAPIView):
     #         return self.get_paginated_response(serializer.data)
     #     serializer = self.get_serializer(queryset, many=True)
     #     return Response(serializer.data)
-class ShakeStatusEdit(generics.ListCreateAPIView):
+class ShakeStatusEdit(generics.RetrieveUpdateDestroyAPIView):
     queryset = Shake.objects.all()
     serializer_class = ShakeSerializer
 
-    def post(self, request):
-        serializer = ShakeSerializer(data=request.data)
-        if serializer.is_valid():
-            shake = serializer.save()
-            if shake:
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
 
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    # queryset = Shake.objects.all()
+    # serializer_class = ShakeSerializer
+    #
+    # def put(self, request):
+    #     serializer = ShakeSerializer(data=request.data)
+    #     if serializer.is_valid():
+    #         shake = serializer.save()
+    #         if shake:
+    #             return Response(serializer.data, status=status.HTTP_201_CREATED)
+    #
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class LeadDetail(generics.RetrieveUpdateDestroyAPIView):
