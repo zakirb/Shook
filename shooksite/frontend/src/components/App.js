@@ -24,7 +24,7 @@ const App = () => (
       <Route path = "/login" component={Login} />
       <Route path = '/signup' component={SignUp} />
       <Route path='/proposeshake' component={ProposalForm} />
-      <Route path='/shake/:id' component={() => (
+      <Route path='/shakes/:id' component={() => (
         <DataProvider endpoint="api/shakes/" render={
                       (data) => (<ShakeDetail data={data}/>)
                     } />

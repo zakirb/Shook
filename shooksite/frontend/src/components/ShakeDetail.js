@@ -29,7 +29,7 @@ class ShakeDetail extends Component {
           <Row>
             <Col s={6}>
               <Card className='center'>
-                <h3>{data[0].proposer}</h3>
+                <h3>User 1</h3>
               </Card>
             </Col>
             <Col s={6}>
