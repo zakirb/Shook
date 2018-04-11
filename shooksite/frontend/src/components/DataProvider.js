@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import axios from 'axios';
 
 class DataProvider extends Component {
   static propTypes = {
@@ -17,18 +18,23 @@ class DataProvider extends Component {
   componentDidMount() {
     let endpoint
     if (this.props.params) {
-      endpoint = this.props.endpoint + `${this.props.params.id}`
+      endpoint = this.props.endpoint + `${this.props.params.match.params.id}`
     } else {
       endpoint = this.props.endpoint
     }
-    fetch(endpoint)
-      .then(response => {
-        if (response.status !== 200) {
-          return this.setState({ placeholder: "Something went wrong" });
-        }
-        return response.json();
-      })
-      .then(data => this.setState({ data: data, loaded: true }));
+    console.log('ENDPOINT', endpoint)
+    axios({
+      method: 'GET',
+      url: endpoint
+    })
+    .then( (response) => {
+      if (response.status !== 200) {
+        return this.setState({ placeholder: "Something went wrong" });
+      }
+      console.log(`Response from ${endpoint}`, response)
+      return response.data
+    })
+    .then( (data) => this.setState({ data: data, loaded: true }));
   }
 
 

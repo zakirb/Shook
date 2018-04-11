@@ -25,17 +25,15 @@ const auth = {
     },
 
     signUp: (request, cb) => {
-      console.log(request)
       axios({
         method: 'POST',
         url: '/api/user/create/',
         data: request
       })
       .then((response) => {
-        console.log(response)
         if (response.headers.authorization) {
           localStorage.token = response.headers.authorization
-          console.log('AUTHENTICATED, TOKEN STORED IN LOCAL STORAGE')
+          // console.log('AUTHENTICATED, TOKEN STORED IN LOCAL STORAGE')
           cb({authenticated:true})
         }
       })
@@ -53,7 +51,7 @@ const auth = {
           Authorization: "Token " + `${token}`
         }
       }).then( (res) => {
-        console.log('SUCCESS GETTING USER', res)
+        // console.log('SUCCESS GETTING USER', res)
         cb(res.data)
       })
       .catch( (err) => {
@@ -70,7 +68,7 @@ const auth = {
         }
       })
       .then( (res) => {
-        console.log('RETRIEVED OTHER USER', res)
+        // console.log('RETRIEVED OTHER USER', res)
         cb(res.data)
       })
       .catch( (err) => {
@@ -88,7 +86,7 @@ const auth = {
         }
       })
       .then( (res) => {
-        console.log('RETRIEVED OTHER USER', res)
+        // console.log('RETRIEVED OTHER USER', res)
         cb(res)
       })
       .catch( (err) => {
@@ -104,7 +102,7 @@ const auth = {
                 username: username,
                 password: password
             }}).then((response) => {
-              console.log(response)
+              // console.log(response)
               cb({
                   authenticated: true,
                   token: response.data.token
