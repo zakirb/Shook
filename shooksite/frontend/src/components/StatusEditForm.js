@@ -37,7 +37,7 @@ class StatusEditForm extends Component {
     console.log('this is the shake status', shakeStatus)
     const conf = {
       method: 'PUT',
-      url: '/api/shakes/edit/',
+      url: `/api/shakes/${id}/`,
       data: shakeStatus,
       headers: {
         Authorization: "Token " + `${token}`
