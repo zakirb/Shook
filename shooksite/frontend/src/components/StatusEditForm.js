@@ -6,39 +6,48 @@ import { Navbar, NavItem, Icon, Dropdown, Button, Row, Col, Input } from "react-
 class StatusEditForm extends Component {
   constructor(props) {
     super()
+    console.log(props)
     this.state = {
-      proposer_status: "",
-      acceptor_status: ""
+      proposer_status: "accepted",
+      acceptor_status: "accepted",
+      id: 4
     }
   }
 
-
-  componentWillReceiveProps (props) {
-    console.log(props)
-    this.setState({
-      proposer_status: props.data[0].proposer_status,
-      acceptor_status: props.data[0].acceptor_status
-    })
+  static getDerivedStateFromProps (nextProps, prevState) {
+    console.log('Get derived state from props nextProps', nextProps)
+    console.log('Get derived state from props prevState', prevState)
+    // this.setState({
+    //   proposer_status: this.props.data[0].proposer_status,
+    //   acceptor_status: this.props.data[0].acceptor_status,
+    //   id: this.props.data[0].id
+    // })
   }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log("new state", this.state)
+
+    console.log(this.state)
+
   };
 
   handleSubmit = e => {
     let token = localStorage.token
     e.preventDefault();
-    const { proposer_status, acceptor_status } = this.state;
-    const  shakeStatus = { 'proposer_status': proposer_status, 'acceptor_status': acceptor_status };
+
+    const { proposer_status, acceptor_status, id } = this.state;
+    const  shakeStatus = { 'proposer_status': proposer_status, 'acceptor_status': acceptor_status, 'id': id };
+    console.log('this is the shake status', shakeStatus)
+
     const conf = {
-      method: "post",
+      method: 'PUT',
       url: '/api/shakes/edit/',
       data: shakeStatus,
       headers: {
-        Authorization: token
+        Authorization: "Token " + `${token}`
       }
     };
+    console.log('This is handling the submit', conf)
     axios(conf).then( (res) => {
       console.log('SUCCESS', res)
     })
@@ -48,19 +57,23 @@ class StatusEditForm extends Component {
   };
 
   render() {
-    const { proposer_status, acceptor_status } = this.state;
+    const { proposer_status, acceptor_status, id } = this.state;
+
     return (
       <form onSubmit={this.handleSubmit}>
         <Row>
-          <Input s={12} type='select' label="Materialize Select" name="acceptor_status" onChange={this.handleChange} defaultValue={'proposed'}>
-            <option value={'proposed'}>proposed</option>
-            <option value={'complete'}>complete</option>
-            <option value={'break'}>break</option>
+
+          <Input s={12} type='select' name='acceptor_status' onChange={this.handleChange} defaultValue={'---'}>
+            <option value={'---'} disabled>---</option>
+            <option value={'completed'}>Completed</option>
+            <option value={'abandoned'}>Abandoned</option>
+
           </Input>
+          <input type='hidden' value={4} name='id' />
         </Row>
         <Row className="control">
           <button type="submit" className="button is-info">Edit Status</button>
-        </Row >
+        </Row>
 
       </form>
     );

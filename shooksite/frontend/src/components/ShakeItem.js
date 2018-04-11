@@ -47,7 +47,7 @@ class ShakeItem extends Component {
         <div>
           <p>The {this.props.data.type}:</p>
           <p>{this.props.data.proposal}</p>
-      <Link to='/shakedetail'>
+      <Link to={`/shakes/${this.props.data.id}`} >
           <Button waves='light'> View Details </Button>
         </Link>
         </div>
