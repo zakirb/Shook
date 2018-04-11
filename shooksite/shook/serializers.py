@@ -39,3 +39,8 @@ class ShakeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Shake
         fields = ('id', 'proposal', 'proposer', 'acceptor', 'description', 'type', 'proposer_status', 'acceptor_status', 'status')
+
+class ShakeEditSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Shake
+        fields = ('id', 'proposer_status', 'acceptor_status')

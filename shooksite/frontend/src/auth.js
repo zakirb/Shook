@@ -88,7 +88,6 @@ const auth = {
         }
       })
       .then( (res) => {
-        console.log('RETRIEVED OTHER USER', res)
         cb(res)
       })
       .catch( (err) => {
