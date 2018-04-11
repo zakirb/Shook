@@ -17,6 +17,7 @@ import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom
 import ShakeDetail from './ShakeDetail';
 
 
+
 const App = () => (
     <Router history={Router.browserHistory}>
       <div>
@@ -24,11 +25,10 @@ const App = () => (
       <Route path = "/login" component={Login} />
       <Route path = '/signup' component={SignUp} />
       <Route path='/proposeshake' component={ProposalForm} />
-      <Route path='/shake/:id' component={() => (
-        <DataProvider endpoint="api/shakes/" render={
+      <Route path='/shakes/:id' component={(params) => (
+        <DataProvider endpoint="/api/shakes/" params={params} render={
                       (data) => (<ShakeDetail data={data}/>)
-                    } />
-      ) }/>
+                    } /> ) }/>
       <Route exact path="/" render={() => (
         (auth.loggedIn()) ? (
           <Redirect to="/profile"/>
@@ -37,10 +37,6 @@ const App = () => (
         ))} />
       <Route path = "/profile" component={Profile} />
       <Route path = '/shakelist' component={ShakeList} />
-      <Route path = '/shakedetail' component={ShakeDetail} />
-      {/* <DataProvider endpoint="api/shook/"
-                    render={(data) => <Table data={data} />} /> */}
-      {/* <Form endpoint="api/shook/" /> */}
       </div>
     </Router>
 );
