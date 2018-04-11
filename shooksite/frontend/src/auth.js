@@ -20,6 +20,24 @@ const auth = {
         delete localStorage.token
     },
 
+    getUser: function(cb) {
+      var token = localStorage.token
+      axios({
+        method: 'GET',
+        url: '/api/token/',
+        headers: {
+          Authorization: "Token " + `${token}`
+        }
+      })
+      .then( (res) => {
+        console.log('SUCCESS GETTING USER', res)
+        cb(res)
+      })
+      .catch( (err) => {
+        console.log('ERROR', err)
+      })
+    },
+
     loggedIn: function() {
         return !!localStorage.token
     },
