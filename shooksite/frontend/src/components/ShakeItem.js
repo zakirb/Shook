@@ -1,13 +1,20 @@
 import React from "react";
-import { Navbar, NavItem, Icon, Dropdown, Button } from "react-materialize";
+import { Collapsible, CollapsibleItem } from "react-materialize";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import './App.css';
 
-const ShakeItem = props => {
+const ShakeItem = data => {
+  console.log('this is in the shake item', data)
+  console.log('this is the user in the shake item', data.user)
+
+  // var name = function()
   return (
-    <div className='shake-item'>
-      <p>This is a shake item!</p>
-    </div>
+    <CollapsibleItem className='shake-item' header={data.data.proposer + ' vs. ' + data.data.acceptor} icon='public'>
+      <div>
+        <p>The {data.data.type}:</p>
+        <p>{data.data.proposal}</p>
+      </div>
+    </CollapsibleItem>
   )
 }
 

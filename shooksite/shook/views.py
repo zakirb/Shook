@@ -26,10 +26,9 @@ class ShakeViewSet(generics.ListCreateAPIView):
         if serializer.is_valid():
             shake = serializer.save()
             if shake:
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
+                return Response(serializer.data, status=status.HTTP_201_CREATED, headers=header)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
     # def list(self, request):
     #     page = self.paginate_queryset(queryset)

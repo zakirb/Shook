@@ -62,6 +62,23 @@ const auth = {
       })
     },
 
+    getUser: function(cb) {
+      var token = localStorage.token
+      axios({
+        method: 'GET',
+        url: '/api/token/',
+        headers: {
+          Authorization: "Token " + `${token}`
+        }
+      }).then( (res) => {
+        console.log('SUCCESS GETTING USER', res)
+        cb(res)
+      })
+      .catch( (err) => {
+        console.log('ERROR', err)
+      })
+    },
+
     getToken: function(username, password, cb) {
         axios({
             method: 'POST',

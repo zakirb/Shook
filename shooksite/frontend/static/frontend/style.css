@@ -1,9 +1,14 @@
+body {
+  color: #D8DBE2;
+}
+
 #app {
   font-family: 'Chivo', sans-serif;
+  background-color: #A9BCD0;
 }
 
 #navbar {
-  background-color: gray;
+  background-color: #373F51;
 }
 
 #home-link {
@@ -16,4 +21,12 @@
 
 .brand-logo {
   left: 1%;
+}
+
+.button {
+  color: #FFFFFF;
+  background-color: #58A4B0;
+  border-radius: 10px;
+  padding: 5px;
+  text-transform: uppercase;
 }

@@ -24,9 +24,15 @@ const TestCall = (data) => {
       </div>
     )
 
+  console.log({data})
 
-
-
+  return (
+    <div className='shake-item'>
+      <h1>HELLO</h1>
+      <p>{data}</p>
+      <p>this is below the props</p>
+    </div>
+  )
 
 }
 
