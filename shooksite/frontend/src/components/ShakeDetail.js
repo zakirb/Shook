@@ -6,9 +6,6 @@ const ShakeDetail = (data) => {
 
   console.log('retrieving data', data)
 
-  let shakes = data.data.map( (item, index) => {
-    return (item, index)
-  })
 
   return (
     <Row>

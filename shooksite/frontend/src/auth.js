@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const auth = {
-    login: (username, password, cb) => {
+    login: function (username, password, cb) {
         if (localStorage.token) {
             if (cb) cb(true)
             return
