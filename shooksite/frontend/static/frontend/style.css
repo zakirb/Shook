@@ -22,3 +22,11 @@ body {
 .brand-logo {
   left: 1%;
 }
+
+.button {
+  color: #FFFFFF;
+  background-color: #58A4B0;
+  border-radius: 10px;
+  padding: 5px;
+  text-transform: uppercase;
+}

@@ -25,7 +25,7 @@ class Home extends Component {
                 <Button waves='light'> Signup </Button>
               </Link>
             </div>
-            
+
         </Col>
       </Row>
     )

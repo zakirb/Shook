@@ -84,9 +84,7 @@ class ProposalForm extends Component {
           </div>
 
           <div className="control">
-            <button type="submit" className="button is-info">
-              Send message
-            </button>
+            <button type="submit" className="button is-info">Propose Shake</button>
           </div>
 
         </form>
