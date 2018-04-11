@@ -16,14 +16,15 @@ import StatusEditForm from './StatusEditForm';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import ShakeDetail from './ShakeDetail';
 
+
 const App = () => (
     <Router history={Router.browserHistory}>
       <div>
       <Nav />
       <Route path = "/login" component={Login} />
       <Route path = '/signup' component={SignUp} />
-      {/*<Route path='/' component={ProposalForm} />*/}
-      <Route path='/' component={StatusEditForm} />
+      <Route path='/proposeshake' component={ProposalForm} />
+      {/*<Route path='/' component={StatusEditForm} />*/}
       <Route exact path="/" render={() => (
         (auth.loggedIn()) ? (
           <Redirect to="/profile"/>
@@ -31,7 +32,6 @@ const App = () => (
           <Home/>
         ))} />
       <Route path = "/profile" component={Profile} />
-      <Route path = '/shakelist' component={ShakeList} />
       <DataProvider endpoint='api/shakes/' render={(data) => <ShakeDetail data={data} />} />
       {/* <DataProvider endpoint="api/shook/"
                     render={(data) => <Table data={data} />} /> */}
