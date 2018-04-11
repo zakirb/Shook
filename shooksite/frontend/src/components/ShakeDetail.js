@@ -3,33 +3,32 @@ import { Navbar, NavItem, Icon, Dropdown, Button, Row, Col, Card } from "react-m
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from 'axios';
 
-class ShakeDetail extends Component {
-  constructor(props){
-    super(props)
-  }
+const ShakeDetail = (props) => {
+  // constructor(props){
+  //   super(props)
+  // }
+  console.log('COMING FROM SHAKE DETAIL', props.data)
 
-  componentDidMount() {
-    console.log('component mounted')
-    axios({
-      method: 'GET',
-      url: '/api/shakes/'
-      }).then( (res) => {
-      console.log('SUCCESS GETTING DATA', res)
-    })
-    .catch( (err) => {
-      console.log('ERROR', err)
-    })
-  }
+  // componentDidMount() {
+  //   console.log('component mounted')
+  //   axios({
+  //     method: 'GET',
+  //     url: '/api/shakes/'
+  //     }).then( (res) => {
+  //     console.log('SUCCESS GETTING DATA', res)
+  //   })
+  //   .catch( (err) => {
+  //     console.log('ERROR', err)
+  //   })
+  // }
 
-
-  render() {
     return (
       <Row>
         <Col s={12}>
           <Row>
             <Col s={6}>
               <Card className='center'>
-                <h3>{data[0].proposer}</h3>
+                <h3>{props.data.proposer}</h3>
               </Card>
             </Col>
             <Col s={6}>
@@ -65,7 +64,6 @@ class ShakeDetail extends Component {
         </Col>
       </Row>
     )
-  }
 }
 
 export default ShakeDetail;
