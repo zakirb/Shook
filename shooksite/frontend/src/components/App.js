@@ -16,6 +16,7 @@ import StatusEditForm from './StatusEditForm';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import ShakeDetail from './ShakeDetail';
 
+
 const App = () => (
     <Router history={Router.browserHistory}>
       <div>

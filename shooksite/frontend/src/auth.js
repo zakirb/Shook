@@ -20,7 +20,7 @@ const auth = {
         delete localStorage.token
     },
 
-    getUser: function(cb) {
+    getUser: (cb) => {
       var token = localStorage.token
       axios({
         method: 'GET',
@@ -31,18 +31,35 @@ const auth = {
       })
       .then( (res) => {
         console.log('SUCCESS GETTING USER', res)
-        cb(res)
+        cb(res.data)
       })
       .catch( (err) => {
         console.log('ERROR', err)
       })
     },
+    getOtherUser: (id, cb) => {
+      var token = localStorage.token
+      axios({
+        method: 'GET',
+        url: "/api/users/" + `${id}`,
+        headers: {
+          Authorization: "Token " + `${token}`
+        }
+      })
+      .then( (res) => {
+        console.log('RETRIEVED OTHER USER', res)
+        cb(res.data)
+      })
+      .catch( (err) => {
+        console.log('ERROR GETTING OTHER USER', err)
+      })
+    },
 
-    loggedIn: function() {
+    loggedIn: () => {
         return !!localStorage.token
     },
 
-    signUp: function(request, cb) {
+    signUp: (request, cb) => {
       console.log(request)
       axios({
         method: 'POST',
@@ -62,7 +79,7 @@ const auth = {
       })
     },
 
-    getUser: function(cb) {
+    getUser: (cb) => {
       var token = localStorage.token
       axios({
         method: 'GET',
@@ -79,7 +96,7 @@ const auth = {
       })
     },
 
-    getToken: function(username, password, cb) {
+    getToken: (username, password, cb) => {
         axios({
             method: 'POST',
             url: '/api/obtain-auth-token/',
