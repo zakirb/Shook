@@ -4,6 +4,7 @@ import ShakeList from './ShakeList';
 import UserBadge from './UserBadge';
 import DataProvider from './DataProvider';
 import auth from '../auth';
+import StatusEditForm from './StatusEditForm';
 
 class Profile extends Component {
   constructor(props){
@@ -33,17 +34,21 @@ class Profile extends Component {
     return (
       <div>
         <Row>
-          <Col s={4}>
+          <Col s={3}>
             <DataProvider endpoint="/api/shakes/"
                           render={(data) => <ShakeList data={data} user={this.state} />} />
           </Col>
-          <Col s={4}>
+          <Col s={3}>
             <DataProvider endpoint="/api/shakes/"
                           render={(data) => <ShakeList data={data} user={this.state} />} />
           </Col>
-          <Col s={4}>
+          <Col s={3}>
             <UserBadge />
           </Col>
+          <Col s={3}>
+            <StatusEditForm />
+          </Col>
+
         </Row>
         <Button floating fab='horizontal' icon='mode_edit' className='red' large style={{bottom: '60px', right: '60px'}}>
           <Button floating icon='insert_chart' className='red'/>

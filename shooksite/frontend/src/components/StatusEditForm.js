@@ -13,11 +13,11 @@ class StatusEditForm extends Component {
   }
 
 
-  componentWillReceiveProps (newProps) {
-    console.log(newProps)
+  componentWillReceiveProps (props) {
+    console.log(props)
     this.setState({
-      proposer_status: newProps.data[0].proposer_status,
-      acceptor_status: newProps.data[0].acceptor_status
+      proposer_status: props.data[0].proposer_status,
+      acceptor_status: props.data[0].acceptor_status
     })
   }
 
@@ -32,7 +32,7 @@ class StatusEditForm extends Component {
     const  shakeStatus = { proposer_status, acceptor_status };
     const conf = {
       method: "post",
-      url: '/api/shakes/edit',
+      url: '/api/shakes/edit/',
       data: shakeStatus,
       headers: {
         Authorization: token

@@ -42,21 +42,21 @@ class ShakeStatusEdit(generics.RetrieveUpdateDestroyAPIView):
     queryset = Shake.objects.all()
     serializer_class = ShakeSerializer
 
-    def put(self, request, *args, **kwargs):
-        return self.update(request, *args, **kwargs)
+    # def put(self, request, *args, **kwargs):
+    #     return self.update(request, *args, **kwargs)
 
 
     # queryset = Shake.objects.all()
     # serializer_class = ShakeSerializer
     #
-    # def put(self, request):
-    #     serializer = ShakeSerializer(data=request.data)
-    #     if serializer.is_valid():
-    #         shake = serializer.save()
-    #         if shake:
-    #             return Response(serializer.data, status=status.HTTP_201_CREATED)
-    #
-    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def put(self, request):
+        serializer = ShakeSerializer(data=request.data)
+        if serializer.is_valid():
+            shake = serializer.save()
+            if shake:
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class LeadDetail(generics.RetrieveUpdateDestroyAPIView):
