@@ -7,14 +7,16 @@ const Nav = () => {
 
   let conditionalNav = (auth.loggedIn()) ? (
     <span>
-    <Link id="shakelist-link" className="navlinks" to="/shakelist">ShakeList</Link>
-    <Link id="logout-link" onClick={() => {
-      auth.logout()
-      document.getElementById('logout-link').style('display:none')
-    }} className="navlinks" to="/">Logout</Link></span>
-  ) : (
-    <Link id="login-link" className="navlinks" to="/login">Login</Link>
-  )
+      <Link id='propose-shake-link' className='navlinks' to='/proposeshake'>Propose a Shake</Link>
+      <Link id="shakelist-link" className="navlinks" to="/shakelist">ShakeList</Link>
+      <Link id="logout-link" classname='navlinks' onClick={() => {
+        auth.logout()
+        document.getElementById('logout-link').style('display:none')
+      }} className="navlinks" to="/">Logout</Link>
+    </span>
+    ) : (
+      <Link id="login-link" className="navlinks" to="/login">Login</Link>
+    )
 
 
   return (
