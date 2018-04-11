@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Collapsible, CollapsibleItem } from "react-materialize";
+import { Collapsible, CollapsibleItem, Button } from "react-materialize";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import auth from '../auth'
+import auth from '../auth';
+import ShakeDetail from './ShakeDetail';
 
 class ShakeItem extends Component {
   constructor(props){
@@ -46,6 +47,9 @@ class ShakeItem extends Component {
         <div>
           <p>The {this.props.data.type}:</p>
           <p>{this.props.data.proposal}</p>
+      <Link to='/shakedetail'>
+          <Button waves='light'> View Details </Button>
+        </Link>
         </div>
       </CollapsibleItem>
     ) : (

@@ -38,7 +38,8 @@ const App = () => (
           <Home/>
         ))} />
       <Route path = "/profile" component={Profile} />
-      <DataProvider endpoint='api/shakes/' render={(data) => <ShakeDetail data={data} />} />
+      <Route path = '/shakelist' component={ShakeList} />
+      <Route path = '/shakedetail' component={ShakeDetail} />
       {/* <DataProvider endpoint="api/shook/"
                     render={(data) => <Table data={data} />} /> */}
       {/* <Form endpoint="api/shook/" /> */}
