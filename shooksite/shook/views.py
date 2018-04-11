@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
-
+from rest_framework.mixins import UpdateModelMixin
 
 class LeadListCreate(generics.ListCreateAPIView):
     queryset = Lead.objects.all()
@@ -36,6 +36,19 @@ class ShakeViewSet(generics.ListCreateAPIView):
     #         return self.get_paginated_response(serializer.data)
     #     serializer = self.get_serializer(queryset, many=True)
     #     return Response(serializer.data)
+class ShakeStatusEdit(generics.ListCreateAPIView):
+    queryset = Shake.objects.all()
+    serializer_class = ShakeSerializer
+
+    def post(self, request):
+        serializer = ShakeSerializer(data=request.data)
+        if serializer.is_valid():
+            shake = serializer.save()
+            if shake:
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class LeadDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Lead.objects.all()
