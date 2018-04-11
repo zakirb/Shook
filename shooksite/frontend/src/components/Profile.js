@@ -41,7 +41,7 @@ class Profile extends Component {
                           render={(data) => <ShakeList data={data} user={this.state} />} />
           </Col>
           <Col s={4}>
-            <UserBadge />
+            <UserBadge user={this.state} />
           </Col>
         </Row>
         <Button floating fab='horizontal' icon='mode_edit' className='red' large style={{bottom: '60px', right: '60px'}}>

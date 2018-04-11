@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const auth = {
-    login: function(username, password, cb) {
+    login: function (username, password, cb) {
         if (localStorage.token) {
             if (cb) cb(true)
             return
@@ -72,6 +72,24 @@ const auth = {
       .then( (res) => {
         console.log('RETRIEVED OTHER USER', res)
         cb(res.data)
+      })
+      .catch( (err) => {
+        console.log('ERROR GETTING OTHER USER', err)
+      })
+    },
+
+    getOtherUser: (id, cb) => {
+      var token = localStorage.token
+      axios({
+        method: 'GET',
+        url: "/api/users/" + `${id}`,
+        headers: {
+          Authorization: "Token " + `${token}`
+        }
+      })
+      .then( (res) => {
+        console.log('RETRIEVED OTHER USER', res)
+        cb(res)
       })
       .catch( (err) => {
         console.log('ERROR GETTING OTHER USER', err)
