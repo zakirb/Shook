@@ -7,9 +7,21 @@ const ShakeItem = data => {
   console.log('this is in the shake item', data)
   console.log('this is the user in the shake item', data.user)
 
-  // var name = function()
+  var proposer = ''
+  var acceptor = ''
+  if (data.data.proposer === data.user.userId) {
+    proposer = data.user.username
+  } else {
+    proposer = data.user.userId
+  }
+  if (data.data.acceptor === data.user.userId) {
+    acceptor = data.user.username
+  } else {
+    acceptor = data.user.userId
+  }
+
   return (
-    <CollapsibleItem className='shake-item' header={data.data.proposer + ' vs. ' + data.data.acceptor} icon='public'>
+    <CollapsibleItem className='shake-item' header={proposer + ' vs. ' + acceptor} icon='public'>
       <div>
         <p>The {data.data.type}:</p>
         <p>{data.data.proposal}</p>
