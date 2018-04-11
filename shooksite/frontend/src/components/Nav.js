@@ -8,7 +8,6 @@ const Nav = () => {
   let conditionalNav = (auth.loggedIn()) ? (
     <span>
       <Link id='propose-shake-link' className='navlinks' to='/proposeshake'>Propose a Shake</Link>
-      <Link id="shakelist-link" className="navlinks" to="/shakelist">ShakeList</Link>
       <Link id="logout-link" className='navlinks' onClick={() => {
         auth.logout()
         document.getElementById('logout-link').style('display:none')
