@@ -24,7 +24,13 @@ const App = () => (
       <Route path = "/login" component={Login} />
       <Route path = '/signup' component={SignUp} />
       <Route path='/proposeshake' component={ProposalForm} />
-      {/*<Route path='/' component={StatusEditForm} />*/}
+      <Route path='/shake/:id' component={
+        <DataProvider endpoint="api/shakes/"
+                    render={
+                      (data) => <ShakeDetail data={data}/>
+                    } />
+                  }
+                />
       <Route exact path="/" render={() => (
         (auth.loggedIn()) ? (
           <Redirect to="/profile"/>

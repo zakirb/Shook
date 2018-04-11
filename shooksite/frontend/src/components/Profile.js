@@ -18,10 +18,10 @@ class Profile extends Component {
   componentDidMount() {
     console.log('yoooooooo')
     auth.getUser((res) => {
-      console.log('This is the USER ID', res.data.id)
+      console.log('This is the USER ID', res.id)
       this.setState({
-        userId: res.data.id,
-        username: res.data.username
+        userId: res.id,
+        username: res.username
       })
       console.log('This is the state now', this.state)
     })
@@ -30,8 +30,7 @@ class Profile extends Component {
 
   render() {
 
-
-    return (
+     return this.state.userId ? (
       <div>
         <Row>
           <Col s={3}>
@@ -42,8 +41,10 @@ class Profile extends Component {
             <DataProvider endpoint="/api/shakes/"
                           render={(data) => <ShakeList data={data} user={this.state} />} />
           </Col>
-          <Col s={3}>
-            <UserBadge />
+
+          <Col s={4}>
+            <UserBadge user={this.state} />
+
           </Col>
           <Col s={3}>
             <StatusEditForm />
@@ -57,6 +58,8 @@ class Profile extends Component {
           <Button floating icon='attach_file' className='blue'/>
         </Button>
       </div>
+    ) : (
+      <p>Loading...</p>
     )
   }
 }
