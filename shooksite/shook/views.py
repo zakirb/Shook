@@ -39,9 +39,11 @@ class ShakeDetail(generics.RetrieveUpdateDestroyAPIView):
     def put(self, request, pk):
         shake = Shake.objects.get(pk=pk)
         serializer = ShakeEditSerializer(shake, data=request.data)
-        print(serializer)
         if serializer.is_valid():
             serializer.save()
+            if (shake.proposer_status == "abandoned" and shake.acceptor_status == "abandoned"):
+                shake.delete()
+                return Response(status=status.HTTP_200_OK)
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
