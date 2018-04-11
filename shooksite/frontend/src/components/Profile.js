@@ -3,18 +3,43 @@ import {Row, Col, Button, Icon} from "react-materialize";
 import ShakeList from './ShakeList';
 import UserBadge from './UserBadge';
 import DataProvider from './DataProvider';
-import TestCall from './TestCall';
+import auth from '../auth';
 
 class Profile extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      userId: null,
+      username: null,
+    }
+  }
+
+  componentDidMount() {
+    console.log('yoooooooo')
+    auth.getUser((res) => {
+      console.log('This is the USER ID', res.data.id)
+      this.setState({
+        userId: res.data.id,
+        username: res.data.username
+      })
+      console.log('This is the state now', this.state)
+    })
+    console.log('after get user function')
+  }
+
   render() {
+
+
     return (
       <div>
         <Row>
           <Col s={4}>
-            <ShakeList />
+            <DataProvider endpoint="/api/shakes/"
+                          render={(data) => <ShakeList data={data} user={this.state} />} />
           </Col>
           <Col s={4}>
-            <ShakeList />
+            <DataProvider endpoint="/api/shakes/"
+                          render={(data) => <ShakeList data={data} user={this.state} />} />
           </Col>
           <Col s={4}>
             <UserBadge />
@@ -26,9 +51,6 @@ class Profile extends Component {
           <Button floating icon='publish' className='green'/>
           <Button floating icon='attach_file' className='blue'/>
         </Button>
-        {/* <DataProvider endpoint="api/shakes/"
-                      render={(data) => <TestCall data={data} />} /> */}
-        <TestCall />
       </div>
     )
   }
