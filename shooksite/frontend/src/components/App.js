@@ -13,6 +13,7 @@ import SignUp from './SignUp';
 import ShakeList from './ShakeList';
 import ProposalForm from './ProposalForm';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import ShakeDetail from './ShakeDetail';
 
 const App = () => (
     <Router history={Router.browserHistory}>
@@ -20,11 +21,7 @@ const App = () => (
       <Nav />
       <Route path = "/login" component={Login} />
       <Route path = '/signup' component={SignUp} />
-<<<<<<< HEAD
       <Route path = '/' component={ProposalForm} />
-=======
-      <Route path='/' component={ProposalForm} />
->>>>>>> c4b34c1d1a3f3d251969d18716a8219845e52641
       <Route exact path="/" render={() => (
         (auth.loggedIn()) ? (
           <Redirect to="/profile"/>
@@ -33,6 +30,7 @@ const App = () => (
         ))} />
       <Route path = "/profile" component={Profile} />
       <Route path = '/shakelist' component={ShakeList} />
+      <Route path = '/' component={ShakeDetail} />
       {/* <DataProvider endpoint="api/shook/"
                     render={(data) => <Table data={data} />} /> */}
       {/* <Form endpoint="api/shook/" /> */}

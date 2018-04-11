@@ -19,27 +19,15 @@ class ShakeViewSet(generics.ListCreateAPIView):
     queryset = Shake.objects.all()
     serializer_class = ShakeSerializer
 
-<<<<<<< HEAD
-    def post(self, request, format='json'):
-=======
     def post(self, request):
->>>>>>> c4b34c1d1a3f3d251969d18716a8219845e52641
         serializer = ShakeSerializer(data=request.data)
         if serializer.is_valid():
             shake = serializer.save()
             if shake:
-<<<<<<< HEAD
                 return Response(serializer.data, status=status.HTTP_201_CREATED, headers=header)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-=======
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
->>>>>>> c4b34c1d1a3f3d251969d18716a8219845e52641
     # def list(self, request):
     #     page = self.paginate_queryset(queryset)
     #     if page is not None:
