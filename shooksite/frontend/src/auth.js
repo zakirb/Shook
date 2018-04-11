@@ -20,41 +20,6 @@ const auth = {
         delete localStorage.token
     },
 
-    getUser: (cb) => {
-      var token = localStorage.token
-      axios({
-        method: 'GET',
-        url: '/api/token/',
-        headers: {
-          Authorization: "Token " + `${token}`
-        }
-      })
-      .then( (res) => {
-        console.log('SUCCESS GETTING USER', res)
-        cb(res.data)
-      })
-      .catch( (err) => {
-        console.log('ERROR', err)
-      })
-    },
-    getOtherUser: (id, cb) => {
-      var token = localStorage.token
-      axios({
-        method: 'GET',
-        url: "/api/users/" + `${id}`,
-        headers: {
-          Authorization: "Token " + `${token}`
-        }
-      })
-      .then( (res) => {
-        console.log('RETRIEVED OTHER USER', res)
-        cb(res.data)
-      })
-      .catch( (err) => {
-        console.log('ERROR GETTING OTHER USER', err)
-      })
-    },
-
     loggedIn: () => {
         return !!localStorage.token
     },
@@ -93,6 +58,24 @@ const auth = {
       })
       .catch( (err) => {
         console.log('ERROR', err)
+      })
+    },
+
+    getOtherUser: (id, cb) => {
+      var token = localStorage.token
+      axios({
+        method: 'GET',
+        url: "/api/users/" + `${id}`,
+        headers: {
+          Authorization: "Token " + `${token}`
+        }
+      })
+      .then( (res) => {
+        console.log('RETRIEVED OTHER USER', res)
+        cb(res)
+      })
+      .catch( (err) => {
+        console.log('ERROR GETTING OTHER USER', err)
       })
     },
 
