@@ -23,7 +23,7 @@ const App = () => (
       <Nav />
       <Route path = "/login" component={Login} />
       <Route path = '/signup' component={SignUp} />
-      <Route path='/' component={ProposalForm} />
+      <Route path='/proposeshake' component={ProposalForm} />
       {/*<Route path='/' component={StatusEditForm} />*/}
       <Route exact path="/" render={() => (
         (auth.loggedIn()) ? (
