@@ -6,17 +6,13 @@ const ShakeDetail = (data) => {
 
   console.log('retrieving data', data)
 
-  // let shakes = data.data.map( (item, index) => {
-  //   return (item, index)
-  // })
-
   return (
     <Row>
       <Col s={12}>
         <Row>
           <Col s={6}>
             <Card className='center'>
-              <h3>{data.user}</h3>
+              <h3>User 1</h3>
             </Card>
           </Col>
           <Col s={6}>
@@ -30,11 +26,14 @@ const ShakeDetail = (data) => {
           <Col s={8}>
             <Card className='center'>
               <h4>Shake Proposal</h4>
-              <p className='shakeproposal'>{data.data.proposal}</p>
+              <p className='shakeproposal'>
+                Lorem ipsum dolor amet air plant quinoa tacos, woke neutra post-ironic bespoke unicorn everyday carry etsy. Cred meh fam, ugh whatever meggings jean shorts sriracha. Cronut adaptogen farm-to-table fam enamel pin brooklyn everyday carry unicorn pork belly DIY poutine humblebrag. Forage yr photo booth cornhole, chambray lyft pinterest aesthetic keytar cold-pressed VHS ramps DIY. Next level crucifix gastropub kale chips snackwave, asymmetrical tumeric synth chambray. Forage aesthetic banjo roof party echo park. Food truck succulents squid mixtape, knausgaard slow-carb godard live-edge.
+              </p>
               <h4>Shake Description</h4>
-              <p className='shakedescription'>{data.data.description}</p>
+              <p className='shakedescription'>
+                Lorem ipsum dolor amet air plant quinoa tacos, woke neutra post-ironic bespoke unicorn everyday carry etsy. Cred meh fam, ugh whatever meggings jean shorts sriracha. Cronut adaptogen farm-to-table fam enamel pin brooklyn everyday carry unicorn pork belly DIY poutine humblebrag. Forage yr photo booth cornhole, chambray lyft pinterest aesthetic keytar cold-pressed VHS ramps DIY. Next level crucifix gastropub kale chips snackwave, asymmetrical tumeric synth chambray. Forage aesthetic banjo roof party echo park. Food truck succulents squid mixtape, knausgaard slow-carb godard live-edge.
+              </p>
               <h6>Shake Status</h6>
-              <p>{data.data.status}</p>
               <Button waves='light'>Complete this Shake!</Button>
               <br />
               <Button waves='light'>Delete this Shake</Button>
