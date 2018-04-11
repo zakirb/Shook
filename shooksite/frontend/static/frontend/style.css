@@ -1,5 +1,10 @@
+body {
+  color: #D8DBE2;
+}
+
 #app {
   font-family: 'Chivo', sans-serif;
+  background-color: #A9BCD0;
 }
 
 #navbar {
