@@ -3,53 +3,55 @@ import { Collapsible, CollapsibleItem } from "react-materialize";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import auth from '../auth'
 
-var proposer = ''
-var acceptor = ''
-
 class ShakeItem extends Component {
-  constructor(props) {
+  constructor(props){
     super(props)
+    this.state = {
+      proposer: null,
+      acceptor: null,
+    }
   }
 
-  componentWillMount() {
-    console.log('testing proposer', data.data.proposer, data.user.userId)
-    if (data.data.proposer === data.user.userId) {
-      proposer = data.user.username
-    } else {
-      auth.getOtherUser(data.data.proposer, (res) => {
-        console.log('This is res.data.username', res.data.username)
-        proposer = res.data.username
+  componentDidMount() {
+
+    if (this.props.data.proposer === this.props.user.userId) {
+      this.setState({
+        proposer: this.props.user.username
       })
-      console.log("this is after the getOtherUser function, proposer", proposer)
+    } else {
+      auth.getOtherUser(this.props.data.proposer, (res) => {
+        this.setState({
+          proposer: res.data.username
+        })
+      })
     }
 
-    console.log('testing acceptor', data.data.acceptor, data.user.userId)
-
-    if (data.data.acceptor === data.user.userId) {
-      acceptor = data.user.username
-    } else {
-      auth.getOtherUser(data.data.acceptor, (res) => {
-        console.log('This is res.data.username', res.data.username)
-        acceptor = res.data.username
+    if (this.props.data.acceptor === this.props.user.userId) {
+      this.setState({
+        acceptor: this.props.user.username
       })
-      console.log("this is after the getOtherUser function, acceptor", acceptor)
+    } else {
+      auth.getOtherUser(this.props.data.acceptor, (res) => {
+        this.setState({
+          acceptor: res.data.username
+        })
+      })
     }
   }
 
   render() {
-    if (acceptor !== '' && proposer !== ''){
-      return (
-        <CollapsibleItem className='shake-item' header={proposer + ' vs. ' + acceptor} icon='public'>
-          <div>
-            <p>The {data.data.type}:</p>
-            <p>{data.data.proposal}</p>
-          </div>
-        </CollapsibleItem>
-      )
-    }
+
+    return (this.state.acceptor && this.state.proposer) ? (
+      <CollapsibleItem className='shake-item' header={this.state.proposer + ' vs. ' + this.state.acceptor} icon='public'>
+        <div>
+          <p>The {this.props.data.type}:</p>
+          <p>{this.props.data.proposal}</p>
+        </div>
+      </CollapsibleItem>
+    ) : (
+      <p>Loading...</p>
+    )
   }
-
-
 }
 
 export default ShakeItem;
