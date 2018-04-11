@@ -11,10 +11,11 @@ router.register(r'users', views.UserViewSet)
 urlpatterns = router.urls
 
 urlpatterns += [
-    path('leads/', views.LeadListCreate.as_view() ),
+    # path('leads/', views.LeadListCreate.as_view() ),
+    # path('<int:pk>/', views.LeadDetail.as_view()),
+    path('shakes/<int:pk>/', views.ShakeDetail.as_view()),
     path('shakes/', views.ShakeViewSet.as_view()),
     path('shakes/edit/', views.ShakeStatusEdit.as_view()),
-    path('<int:pk>/', views.LeadDetail.as_view()),
     path('user/create/', views.CreateUser.as_view()),
     path('token/', views.getToken),
     re_path(r'^obtain-auth-token/$', obtain_auth_token),

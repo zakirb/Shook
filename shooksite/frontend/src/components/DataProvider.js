@@ -15,7 +15,13 @@ class DataProvider extends Component {
 
 
   componentDidMount() {
-    fetch(this.props.endpoint)
+    let endpoint
+    if (this.props.params.id) {
+      endpoint = this.props.endpoint + `${this.props.params.id}`
+    } else {
+      endpoint = this.props.endpoint
+    }
+    fetch(endpoint)
       .then(response => {
         if (response.status !== 200) {
           return this.setState({ placeholder: "Something went wrong" });
