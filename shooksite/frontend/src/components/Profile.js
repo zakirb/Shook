@@ -47,7 +47,8 @@ class Profile extends Component {
 
           </Col>
           <Col s={3}>
-            <StatusEditForm />
+          <DataProvider endpoint="/api/shakes/"
+                        render={(data) => <StatusEditForm data={data} user={this.state} />} />
           </Col>
 
         </Row>

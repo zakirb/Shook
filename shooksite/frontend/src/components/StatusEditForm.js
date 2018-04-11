@@ -26,15 +26,19 @@ class StatusEditForm extends Component {
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+
     console.log(this.state)
+
   };
 
   handleSubmit = e => {
     let token = localStorage.token
     e.preventDefault();
+
     const { proposer_status, acceptor_status, id } = this.state;
     const  shakeStatus = { 'proposer_status': proposer_status, 'acceptor_status': acceptor_status, 'id': id };
     console.log('this is the shake status', shakeStatus)
+
     const conf = {
       method: 'PUT',
       url: '/api/shakes/edit/',
@@ -58,10 +62,12 @@ class StatusEditForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <Row>
+
           <Input s={12} type='select' name='acceptor_status' onChange={this.handleChange} defaultValue={'---'}>
             <option value={'---'} disabled>---</option>
             <option value={'completed'}>Completed</option>
             <option value={'abandoned'}>Abandoned</option>
+
           </Input>
           <input type='hidden' value={4} name='id' />
         </Row>
