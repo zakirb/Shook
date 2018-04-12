@@ -5,7 +5,6 @@ import auth from '../auth';
 import ShakeDetail from './ShakeDetail';
 
 
-var backgroundClass = ''
 
 class ShakeItem extends Component {
   constructor(props){
@@ -42,21 +41,17 @@ class ShakeItem extends Component {
       })
     }
 
-    console.log('hey this is the status', this.props.data)
-
-    if (this.props.data.status === 'proposed') {
-      backgroundClass = 'shake-item proposed'
-    } else if (this.props.data.status === 'completed') {
-      backgroundClass = 'shake-item completed'
-    } else {
-      backgroundClass = 'shake-item'
-    }
   }
 
   render() {
 
+    let styles = {
+      margin: 0,
+      padding: '20px',
+    }
+
     return (this.state.acceptor && this.state.proposer) ? (
-      <CollapsibleItem className={backgroundClass} header={this.state.proposer + ' vs. ' + this.state.acceptor} icon='public'>
+      <CollapsibleItem className={this.props.data.status} header={<h4 style={styles}>{this.state.proposer + ' vs. ' + this.state.acceptor}</h4>} icon='person'>
         <div>
           <Link to={`/shakes/${this.props.data.id}`} >
             <Button waves='light'> View Details </Button>
