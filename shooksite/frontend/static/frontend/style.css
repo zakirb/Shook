@@ -67,6 +67,18 @@ body {
   width: 160px;
 }
 
+.formContainer {
+  background-color: white;
+  margin-top: 100px;
+  padding: 30px 25px!important;
+  border-radius: 10px;
+  color: #373F51;
+}
+ /* forms' buttons */
+.center-butt {
+  margin: 0 auto!important;
+}
+
 #footer {
   background-color: #373F51;
 }
