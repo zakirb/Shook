@@ -4,12 +4,13 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from 'axios';
 import StatusEditForm from './StatusEditForm';
 import auth from '../auth';
+import ShakeItem from './ShakeItem';
 
 class ShakeDetail extends Component {
   constructor(props){
     super(props)
     this.state = {
-      userId: ''
+      userId: '',
     }
   }
 
@@ -17,9 +18,12 @@ class ShakeDetail extends Component {
     auth.getUser((res) => {
       console.log('SHAKE DETAIL USER', res)
       this.setState({
-        userId:res.id
+        userId: res.id,
+
       })
+      console.log("user id", serId)
     })
+
   }
 
 
@@ -44,11 +48,19 @@ render () {
             <Col s={6}>
               <Card className='center'>
                 <h3>{this.props.data.proposer}</h3>
+                <h4>Shake Current Status</h4>
+                <p className='shakestatus'>
+                  {this.props.data.proposer_status}
+                </p>
               </Card>
             </Col>
             <Col s={6}>
               <Card className='center'>
-                <h3>User 2</h3>
+                <h3>{this.props.data.acceptor}</h3>
+                <h4>Shake Current Status</h4>
+                <p className='shakestatus'>
+                  {this.props.data.acceptor_status}
+                </p>
               </Card>
             </Col>
           </Row>
@@ -56,21 +68,24 @@ render () {
             <Col s={2}></Col>
             <Col s={8}>
               <Card className='center'>
-                <h4>Shake Proposal</h4>
+                <h4>Proposal</h4>
                 <p className='shakeproposal'>
                   {this.props.data.proposal}
                 </p>
-                <h4>Shake Description</h4>
+                <h4>Description</h4>
                 <p className='shakedescription'>
                   {this.props.data.description}
                 </p>
-                <h6>Shake Status</h6>
+                <h4>Current Status</h4>
+                <p className='shakestatus'>
+                  {this.props.data.status}
+                </p>
                 <Row>
                   <StatusEditForm data={this.props.data} userId={this.state.userId}/>
                 </Row>
-                <Button waves='light'>Complete this Shake!</Button>
+                {/*<Button waves='light'>Complete this Shake!</Button>
                 <br />
-                <Button waves='light'>Delete this Shake</Button>
+                <Button waves='light'>Delete this Shake</Button>*/}
                 <br />
                 <Link to='/profile'>
                   <Button waves='light'> Back to Profile </Button>
