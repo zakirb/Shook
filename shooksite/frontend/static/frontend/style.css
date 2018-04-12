@@ -55,6 +55,11 @@ main {
 .link-button {
   margin: 10px;
   border-radius: 10px;
+  border: 2px solid #373F51;
+  background-color: #58A4B0;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 200;
 }
 
 .home {
@@ -72,6 +77,8 @@ main {
   width: 160px;
   font-size: 20px;
   font-weight: 200;
+  background-color: #58A4B0;
+  color: #FFFFFF;
 }
 
 #footer {
@@ -86,6 +93,19 @@ main {
 }
 
 .footerlink {
-  font-size: 20px;
+  font-size: 18px;
   color: white;
+}
+
+#nav-mobile {
+  background-color: #D8DBE2;
+}
+
+#nav-mobile .navlinks {
+  border-bottom: 1px solid #373F51;
+  margin: 0;
+}
+
+#nav-mobile .navlinks:hover {
+  background-color: #DAA49A;
 }
