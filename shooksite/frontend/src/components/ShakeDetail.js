@@ -2,12 +2,27 @@ import React, { Component } from "react";
 import { Navbar, NavItem, Icon, Dropdown, Button, Row, Col, Card } from "react-materialize";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from 'axios';
+import StatusEditForm from './StatusEditForm';
+import auth from '../auth';
 
-const ShakeDetail = (props) => {
-  // constructor(props){
-  //   super(props)
-  // }
-  console.log('COMING FROM SHAKE DETAIL', props.data)
+class ShakeDetail extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      userId: ''
+    }
+  }
+
+  componentDidMount() {
+    auth.getUser((res) => {
+      console.log('SHAKE DETAIL USER', res)
+      this.setState({
+        userId:res.id
+      })
+    })
+  }
+
+
 
   // componentDidMount() {
   //   console.log('component mounted')
@@ -21,14 +36,14 @@ const ShakeDetail = (props) => {
   //     console.log('ERROR', err)
   //   })
   // }
-
+render () {
     return (
       <Row>
         <Col s={12}>
           <Row>
             <Col s={6}>
               <Card className='center'>
-                <h3>{props.data.proposer}</h3>
+                <h3>{this.props.data.proposer}</h3>
               </Card>
             </Col>
             <Col s={6}>
@@ -42,12 +57,18 @@ const ShakeDetail = (props) => {
             <Col s={8}>
               <Card className='center'>
                 <h4>Shake Proposal</h4>
-                <p className='shakeproposal'>{props.data.proposal}</p>
+                <p className='shakeproposal'>
+                  {this.props.data.proposal}
+                </p>
                 <h4>Shake Description</h4>
-                <p className='shakedescription'>{props.data.description}</p>
-                <h6>Shake Status: </h6>
-                <p>{props.data.status}</p>
-                <Button className='link-button' waves='light'>Update this Shake!</Button>
+                <p className='shakedescription'>
+                  {this.props.data.description}
+                </p>
+                <h6>Shake Status</h6>
+                <Row>
+                  <StatusEditForm data={this.props.data} userId={this.state.userId}/>
+                </Row>
+                <Button waves='light'>Complete this Shake!</Button>
                 <br />
                 <Button className='link-button' waves='light'>Delete this Shake</Button>
                 <br />
@@ -61,6 +82,7 @@ const ShakeDetail = (props) => {
         </Col>
       </Row>
     )
+  }
 }
 
 export default ShakeDetail;

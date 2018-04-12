@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 from shook.models import Lead, Shake
-from shook.serializers import LeadSerializer, UserSerializer, ShakeSerializer
+from shook.serializers import LeadSerializer, UserSerializer, ShakeSerializer, ShakeEditSerializer
 from rest_framework import generics, permissions, viewsets, status
 from rest_framework.response import Response
 from django.contrib.auth.models import User
@@ -32,31 +32,23 @@ class ShakeViewSet(generics.ListCreateAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-
-class ShakeStatusEdit(generics.ListCreateAPIView):
-
-    queryset = Shake.objects.all()
-    serializer_class = ShakeSerializer
-
-    # def put(self, request, *args, **kwargs):
-    #     return self.update(request, *args, **kwargs)
-
-
-    # queryset = Shake.objects.all()
-    # serializer_class = ShakeSerializer
-    #
-    def put(self, request):
-        serializer = ShakeSerializer(data=request.data)
-        if serializer.is_valid():
-            shake = serializer.save()
-            if shake:
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 class ShakeDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Shake.objects.all()
     serializer_class = ShakeSerializer
+
+    def put(self, request, pk):
+        shake = Shake.objects.get(pk=pk)
+        serializer = ShakeEditSerializer(shake, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            if (shake.proposer_status == "abandoned" and shake.acceptor_status == "abandoned"):
+                shake.delete()
+                return Response(status=status.HTTP_200_OK)
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
 
 
 class LeadDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -92,7 +84,7 @@ class CreateUser(APIView):
 
 @api_view(['GET'])
 @permission_classes((permissions.IsAuthenticated,))
-def getToken(request):
+def getUserFromToken(request):
     serializer = UserSerializer(request.user)
     if serializer:
         return Response(serializer.data)
