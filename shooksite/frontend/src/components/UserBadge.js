@@ -1,19 +1,28 @@
 import React from "react";
-import { Card, CardTitle } from "react-materialize";
+import { Card, CardTitle, Col } from "react-materialize";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-// import './App.css';
 
 const UserBadge = data => {
-  return (
-    <div className='user-badge'>
-      <Card className='small'
-        header={<CardTitle>{data.user.username}</CardTitle>}
-        actions={[<a href='#'>This is a Link</a>]}>
-        <div>
 
+  var count = []
+  let number = data.data.map( i => {
+    if (i.proposer === data.user.userId || i.acceptor === data.user.userId) {
+      count.push(i)
+    }
+    return count
+  })
+
+
+  return (
+    <Col m={4} s={12}>
+      <Card className='small'
+        header={<CardTitle image='../../static/frontend/shaking.png'>{data.user.username}</CardTitle>}
+        >
+        <div>
+          <h4>{'# of Shakes: ' + count.length + ' '}</h4>
         </div>
       </Card>
-    </div>
+    </Col>
   )
 }
 

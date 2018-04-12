@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Row, Col, Button, Icon} from "react-materialize";
+import {Row, Col, Button, Icon, Link} from "react-materialize";
 import ShakeList from './ShakeList';
 import UserBadge from './UserBadge';
 import DataProvider from './DataProvider';
@@ -30,25 +30,26 @@ class Profile extends Component {
 
   render() {
 
+    let all = { 'id': 'global'}
+    let solo = { 'id': 'private'}
+
      return this.state.userId ? (
       <div>
         <Row className='center-align'>
-          <Col m={4} s={12}>
-            <UserBadge user={this.state} />
-          </Col>
           <DataProvider endpoint="/api/shakes/"
-                          render={(data) => <ShakeList className='shake-list' data={data} user={this.state} />} />
+                          render={(data) => <UserBadge className='shake-list' data={data} user={this.state} title={all} />} />
 
           <DataProvider endpoint="/api/shakes/"
-                          render={(data) => <ShakeList className='shake-list' data={data} user={this.state} />} />
+                          render={(data) => <ShakeList className='shake-list' data={data} user={this.state} title={all} />} />
+
+          <DataProvider endpoint="/api/shakes/"
+                          render={(data) => <ShakeList className='shake-list' data={data} user={this.state} title={solo}  />} />
         </Row>
         <Row>
-          <Button floating fab='horizontal' icon='mode_edit' className='red' large style={{bottom: '60px', right: '60px'}}>
-            <Button floating icon='insert_chart' className='red'/>
-            <Button floating icon='format_quote' className='yellow darken-1'/>
-            <Button floating icon='publish' className='green'/>
-            <Button floating icon='attach_file' className='blue'/>
-          </Button>
+          {/* <Link to={`/shakes/`} > */}
+            <Button floating fab='horizontal' icon='add' className='blue-grey darken-2' large style={{bottom: '200px', right: '200px'}}>
+            </Button>
+          {/* </Link> */}
         </Row>
       </div>
     ) : (

@@ -1,19 +1,16 @@
 import React, { Component } from "react";
-import { Collapsible, CollapsibleItem, Button } from "react-materialize";
+import { Collapsible, CollapsibleItem, Button, CollectionItem } from "react-materialize";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import auth from '../auth';
-import ShakeDetail from './ShakeDetail';
 
-
-var backgroundClass = ''
-
-class ShakeItem extends Component {
+class ShakeItemGlobal extends Component {
   constructor(props){
     super(props)
     this.state = {
       proposer: null,
       acceptor: null,
     }
+    console.log('sup fucks this is this', this)
   }
 
   componentDidMount() {
@@ -41,32 +38,25 @@ class ShakeItem extends Component {
         })
       })
     }
-
-    console.log('hey this is the status', this.props.data)
-
-    if (this.props.data.status === 'proposed') {
-      backgroundClass = 'shake-item proposed'
-    } else if (this.props.data.status === 'completed') {
-      backgroundClass = 'shake-item completed'
-    } else {
-      backgroundClass = 'shake-item'
-    }
   }
 
   render() {
-
     return (this.state.acceptor && this.state.proposer) ? (
-      <CollapsibleItem className={backgroundClass} header={this.state.proposer + ' vs. ' + this.state.acceptor} icon='public'>
-        <div>
-          <Link to={`/shakes/${this.props.data.id}`} >
-            <Button waves='light'> View Details </Button>
-          </Link>
-        </div>
-      </CollapsibleItem>
+      <CollectionItem>
+        hey
+        {/* <Icon left small>public</Icon> */}
+        {/* {this.state.proposer} + ' vs. ' + {this.state.acceptor} */}
+        {/* <p>The {this.props.data.type}:</p>
+        <p>{this.props.data.proposal}</p> */}
+      </CollectionItem>
     ) : (
-      <p>Loading...</p>
+      <CollectionItem>
+       Loading...
+      </CollectionItem>
     )
   }
 }
 
-export default ShakeItem;
+
+
+export default ShakeItemGlobal;
