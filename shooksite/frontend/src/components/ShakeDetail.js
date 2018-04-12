@@ -23,26 +23,28 @@ class ShakeDetail extends Component {
       console.log('SHAKE DETAIL USER', res)
       this.setState({
         userId: res.id,
+        username: res.username
 
       })
-      console.log("user id", serId)
+      console.log("user id", this.state.userId)
     })
 
-    if (this.props.data.proposer === this.props.userId) {
+    if (this.props.data.proposer === this.state.userId) {
       this.setState({
-        proposer: this.props.user.username
+        proposer: this.state.username
       })
     } else {
       auth.getOtherUser(this.props.data.proposer, (res) => {
+        console.log('RETRIEVED OTHER USER', res)
         this.setState({
           proposer: res.data.username
         })
       })
     }
 
-    if (this.props.data.acceptor === this.props.userId) {
+    if (this.props.data.acceptor === this.state.userId) {
       this.setState({
-        acceptor: this.props.user.username
+        acceptor: this.state.username
       })
     } else {
       auth.getOtherUser(this.props.data.acceptor, (res) => {

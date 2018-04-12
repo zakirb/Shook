@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+
 from django.http import HttpResponse
 from shook.models import Lead, Shake
 from shook.serializers import LeadSerializer, UserSerializer, ShakeSerializer
@@ -38,7 +39,11 @@ class ShakeDetail(generics.RetrieveUpdateDestroyAPIView):
         shake = Shake.objects.get(pk=pk)
         serializer = ShakeSerializer(shake)
         username = request.user.username
-        header = {"username" : f'{username}'}
+        id = request.user.id
+        header = {
+        "username" : f"{username}",
+        "id": f"{id}"
+        }
         return Response(serializer.data, headers=header)
 
     def put(self, request, pk):
