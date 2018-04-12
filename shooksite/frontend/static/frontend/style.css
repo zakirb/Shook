@@ -1,10 +1,10 @@
 body {
   color: #D8DBE2;
+  background-image: url('./fist_bump.png')
 }
 
 #app {
   font-family: 'Chivo', sans-serif;
-  background-color: #A9BCD0;
 }
 
 #navbar {

@@ -8,9 +8,9 @@
   padding: 0;
   margin:0;
   height: 50vh;
-  border-color: #D8DBE2;
-  background-color: white !important;
-  border-style: solid;
-  border-width: thin;
   overflow-y: scroll;
+}
+
+div.collapsible-body {
+  background-color: white !important;
 }
