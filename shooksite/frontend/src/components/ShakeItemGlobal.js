@@ -10,7 +10,7 @@ class ShakeItemGlobal extends Component {
       proposer: null,
       acceptor: null,
     }
-    console.log('sup fucks this is this', this)
+    // console.log('sup fucks this is this', this)
   }
 
   componentDidMount() {

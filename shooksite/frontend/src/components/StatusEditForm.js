@@ -52,7 +52,23 @@ class StatusEditForm extends Component {
   render() {
     const { proposer_status, acceptor_status, id, userId} = this.state;
 
-  var inputName = (userId === this.props.data.proposer) ? "proposer_status" : "acceptor_status"
+    var inputName = (userId === this.props.data.proposer) ? "proposer_status" : "acceptor_status"
+
+    // if (this.props.hidden === true) {
+    //   inputName = "Status"
+    //   return (
+    //     <form>
+    //       <Row>
+    //         <Input s={12} type='select' name={inputName} defaultValue={this.props.data.status}>
+    //           <option value={'---'} disabled>---</option>
+    //           <option value={'proposed'}>Proposed</option>
+    //           <option value={'accepted'}>Accepted</option>
+    //           <option value={'completed'}>Completed</option>
+    //         </Input>
+    //       </Row>
+    //     </form>
+    //   )
+    // }
 
     return (
       <form onSubmit={this.handleSubmit}>

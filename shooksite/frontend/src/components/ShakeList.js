@@ -15,7 +15,7 @@ const ShakeList = (data) => {
 
   let globalShakesClean = globalShakes.filter( item => item !== undefined)
 
-  console.log(globalShakes)
+  // console.log(globalShakes)
 
   let personalShakes = data.data.map( (item, index) => {
     if (item.proposer === data.user.userId || item.acceptor === data.user.userId) {
@@ -25,7 +25,7 @@ const ShakeList = (data) => {
 
 
 
-  console.log(personalShakes)
+  // console.log(personalShakes)
 
   return (data.title.id === 'global') ?
   (

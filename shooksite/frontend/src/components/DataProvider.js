@@ -36,7 +36,7 @@ class DataProvider extends Component {
         return this.setState({ placeholder: "Something went wrong" });
       }
       console.log(`Response from ${endpoint}`, response)
-      return response.data
+      return response
     })
     .then( (data) => this.setState({ data: data, loaded: true }));
   }
@@ -44,7 +44,7 @@ class DataProvider extends Component {
 
   render() {
     const { data, loaded, placeholder } = this.state;
-    return loaded ? this.props.render(data) : <p>{placeholder}</p>;
+    return loaded ? this.props.render(data.data, data.headers) : <p>{placeholder}</p>;
   }
 }
 export default DataProvider;
