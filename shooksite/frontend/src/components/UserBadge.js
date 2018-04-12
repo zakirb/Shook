@@ -16,7 +16,7 @@ const UserBadge = data => {
   return (
     <Col m={4} s={12}>
       <Card className='small'
-        header={<CardTitle image='../../static/frontend/images/handshake.png'>{data.user.username}</CardTitle>}
+        header={<CardTitle image='../../static/frontend/images/handshake.jpg'>{data.user.username}</CardTitle>}
         >
         <div>
           <h4>{'# of Shakes: ' + count.length + ' '}</h4>
