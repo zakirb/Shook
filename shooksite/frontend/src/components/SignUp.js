@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import auth from '../auth';
+import { Navbar, NavItem, Icon, Dropdown, Button, Row, Col, Input } from "react-materialize";
+
 
 class SignUp extends Component {
   constructor(props) {
@@ -40,14 +42,20 @@ class SignUp extends Component {
   render() {
     const { username, email, password, first_name, last_name } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-          <input type="text" name='first_name' placeholder="first_name" value={first_name} onChange={this.handleChange}/>
-          <input type="text" name='last_name' placeholder="last_name" value={last_name} onChange={this.handleChange}/>
-          <input type="text" name='username' placeholder="username" value={username} onChange={this.handleChange}/>
-          <input type="email" name='email' placeholder="email" value={email} onChange={this.handleChange}/>
-          <input type="password" name='password' placeholder="password" value={password} onChange={this.handleChange}/>
-          <input type="submit" value='Sign Up' />
-      </form>
+    <Row >
+      <div className="col s12 m8 offset-m2 formContainer">
+        <form onSubmit={this.handleSubmit}>
+          <input className="col s12" type="text" name='first_name' placeholder="first_name" value={first_name} onChange={this.handleChange}/>
+          <input className="col s12" type="text" name='last_name' placeholder="last_name" value={last_name} onChange={this.handleChange}/>
+          <input className="col s12" type="text" name='username' placeholder="username" value={username} onChange={this.handleChange}/>
+          <input className="col s12" type="email" name='email' placeholder="email" value={email} onChange={this.handleChange}/>
+          <input className="col s12" type="password" name='password' placeholder="password" value={password} onChange={this.handleChange}/>
+          <div className='col s12 center-butt center'>
+            <input className="btn" waves="light" type="submit" value='SIGNUP' />
+          </div>
+        </form>
+      </div>
+    </Row>
     )
   }
 }
