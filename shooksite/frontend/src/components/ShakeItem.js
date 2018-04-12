@@ -51,7 +51,7 @@ class ShakeItem extends Component {
     }
 
     return (this.state.acceptor && this.state.proposer) ? (
-      <CollapsibleItem className={this.props.data.status} header={<h4 style={styles}>{this.state.proposer + ' vs. ' + this.state.acceptor}</h4>} icon='public'>
+      <CollapsibleItem className={this.props.data.status} header={<h4 style={styles}>{this.state.proposer + ' vs. ' + this.state.acceptor}</h4>} icon='person'>
         <div>
           <Link to={`/shakes/${this.props.data.id}`} >
             <Button waves='light'> View Details </Button>
