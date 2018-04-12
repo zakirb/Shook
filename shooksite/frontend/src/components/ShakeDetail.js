@@ -7,10 +7,14 @@ import auth from '../auth';
 import ShakeItem from './ShakeItem';
 
 class ShakeDetail extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
+    console.log(props)
     this.state = {
-      userId: '',
+      id: '',
+      proposer: props.data.proposer,
+      acceptor: props.data.acceptor,
+      userId: ''
     }
   }
 
@@ -24,8 +28,31 @@ class ShakeDetail extends Component {
       console.log("user id", serId)
     })
 
-  }
+    if (this.props.data.proposer === this.props.userId) {
+      this.setState({
+        proposer: this.props.user.username
+      })
+    } else {
+      auth.getOtherUser(this.props.data.proposer, (res) => {
+        this.setState({
+          proposer: res.data.username
+        })
+      })
+    }
 
+    if (this.props.data.acceptor === this.props.userId) {
+      this.setState({
+        acceptor: this.props.user.username
+      })
+    } else {
+      auth.getOtherUser(this.props.data.acceptor, (res) => {
+        this.setState({
+          acceptor: res.data.username
+        })
+      })
+
+  }
+}
 
 
   // componentDidMount() {
@@ -47,22 +74,16 @@ render () {
           <Row>
             <Col s={6}>
               <Card className='center'>
-                <h3>{this.props.data.proposer}</h3>
-                <h4>Shake Current Status</h4>
-                <p className='shakestatus'>
+                <h3>{this.state.proposer}</h3>
+                <p className='shakeproposal'>
                   {this.props.data.proposer_status}
                 </p>
               </Card>
             </Col>
             <Col s={6}>
               <Card className='center'>
-                <h3>{this.props.data.acceptor}</h3>
-
-                <h4>Shake Current Status</h4>
-                <p className='shakestatus'>
-                  {this.props.data.acceptor_status}
-                </p>
-
+                <h3>{this.state.acceptor}</h3>
+                <p>{this.props.data.acceptor_status}</p>
               </Card>
             </Col>
           </Row>
@@ -89,7 +110,6 @@ render () {
                 {/*<Button waves='light'>Complete this Shake!</Button>
                 <br />
                 <Button waves='light'>Delete this Shake</Button>*/}
-
                 <br />
                 <Link to='/profile'>
                   <Button className='link-button' waves='light'> Back to Profile </Button>
