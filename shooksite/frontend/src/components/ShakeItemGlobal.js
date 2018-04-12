@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Collapsible, CollapsibleItem, Button, CollectionItem } from "react-materialize";
+import { Collapsible, CollapsibleItem, Button, CollectionItem, Icon } from "react-materialize";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import auth from '../auth';
 
@@ -43,11 +43,10 @@ class ShakeItemGlobal extends Component {
   render() {
     return (this.state.acceptor && this.state.proposer) ? (
       <CollectionItem>
-        hey
-        {/* <Icon left small>public</Icon> */}
-        {/* {this.state.proposer} + ' vs. ' + {this.state.acceptor} */}
-        {/* <p>The {this.props.data.type}:</p>
-        <p>{this.props.data.proposal}</p> */}
+        <Icon left small>public</Icon>
+        <h4>{this.state.proposer} vs. {this.state.acceptor}</h4>
+        <p>The {this.props.data.type}:</p>
+        <p>{this.props.data.proposal}</p>
       </CollectionItem>
     ) : (
       <CollectionItem>

@@ -5,6 +5,8 @@ import auth from '../auth';
 
 const Nav = () => {
 
+  let logo = <img src={'../../static/frontend/images/shook_logo.svg'} />
+
   let conditionalNav = (auth.loggedIn()) ? (
     <span>
       <Link id='propose-shake-link' className='navlinks' to='/proposeshake'>Propose a Shake</Link>
@@ -20,7 +22,7 @@ const Nav = () => {
 
   return (
     <div>
-      <Navbar brand="Shook" right id="navbar">
+      <Navbar brand={logo} right id="navbar">
         <Link id="home-link" className="navlinks" to="/">Home</Link>
         {conditionalNav}
       </Navbar>
