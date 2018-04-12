@@ -17,7 +17,7 @@ urlpatterns += [
     path('shakes/edit/', views.ShakeDetail.as_view()),
     path('shakes/', views.ShakeViewSet.as_view()),
     path('user/create/', views.CreateUser.as_view()),
-    path('token/', views.getToken),
+    path('token/', views.getUserFromToken),
     # path('thisisatest/', views.TestViews.as_view()), # remove soon
     re_path(r'^obtain-auth-token/$', obtain_auth_token),
 ]

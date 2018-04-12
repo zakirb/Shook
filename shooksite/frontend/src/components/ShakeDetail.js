@@ -3,12 +3,26 @@ import { Navbar, NavItem, Icon, Dropdown, Button, Row, Col, Card } from "react-m
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from 'axios';
 import StatusEditForm from './StatusEditForm';
+import auth from '../auth';
 
-const ShakeDetail = (props) => {
-  // constructor(props){
-  //   super(props)
-  // }
-  console.log('COMING FROM SHAKE DETAIL', props.data)
+class ShakeDetail extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      userId: ''
+    }
+  }
+
+  componentDidMount() {
+    auth.getUser((res) => {
+      console.log('SHAKE DETAIL USER', res)
+      this.setState({
+        userId:res.id
+      })
+    })
+  }
+
+
 
   // componentDidMount() {
   //   console.log('component mounted')
@@ -22,14 +36,14 @@ const ShakeDetail = (props) => {
   //     console.log('ERROR', err)
   //   })
   // }
-
+render () {
     return (
       <Row>
         <Col s={12}>
           <Row>
             <Col s={6}>
               <Card className='center'>
-                <h3>{props.data.proposer}</h3>
+                <h3>{this.props.data.proposer}</h3>
               </Card>
             </Col>
             <Col s={6}>
@@ -52,7 +66,7 @@ const ShakeDetail = (props) => {
                 </p>
                 <h6>Shake Status</h6>
                 <Row>
-                  <StatusEditForm data={props.data}/>
+                  <StatusEditForm data={this.props.data} userId={this.state.userId}/>
                 </Row>
                 <Button waves='light'>Complete this Shake!</Button>
                 <br />
@@ -68,6 +82,7 @@ const ShakeDetail = (props) => {
         </Col>
       </Row>
     )
+  }
 }
 
 export default ShakeDetail;

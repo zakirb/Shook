@@ -6,22 +6,19 @@ import { Navbar, NavItem, Icon, Dropdown, Button, Row, Col, Input } from "react-
 class StatusEditForm extends Component {
   constructor(props) {
     super()
-    console.log(props)
     this.state = {
-      proposer_status: "accepted",
-      acceptor_status: "abandoned",
-      id: 2
+      proposer_status: props.data.proposer_status,
+      acceptor_status: props.data.acceptor_status,
+      id: props.data.id,
+      userId: null
     }
   }
 
   static getDerivedStateFromProps (nextProps, prevState) {
     console.log('Get derived state from props nextProps', nextProps)
     console.log('Get derived state from props prevState', prevState)
-    // this.setState({
-    //   proposer_status: this.props.data[0].proposer_status,
-    //   acceptor_status: this.props.data[0].acceptor_status,
-    //   id: this.props.data[0].id
-    // })
+    return {userId: nextProps.userId}
+
   }
 
   handleChange = e => {
@@ -53,17 +50,19 @@ class StatusEditForm extends Component {
   };
 
   render() {
-    const { proposer_status, acceptor_status, id } = this.state;
+    const { proposer_status, acceptor_status, id, userId} = this.state;
+
+  var inputName = (userId === this.props.data.proposer) ? "proposer_status" : "acceptor_status"
 
     return (
       <form onSubmit={this.handleSubmit}>
         <Row>
-          <Input s={12} type='select' name='proposer_status' onChange={this.handleChange} defaultValue={'---'}>
+          <Input s={12} type='select' name={inputName} onChange={this.handleChange} defaultValue={'---'}>
             <option value={'---'} disabled>---</option>
+            <option value={'accepted'}>Accepted</option>
             <option value={'completed'}>Completed</option>
             <option value={'abandoned'}>Abandoned</option>
           </Input>
-          <input type='hidden' value={id} name='id' />
         </Row>
         <Row className="control">
           <button type="submit" className="button is-info">Edit Status</button>

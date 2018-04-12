@@ -84,7 +84,7 @@ class CreateUser(APIView):
 
 @api_view(['GET'])
 @permission_classes((permissions.IsAuthenticated,))
-def getToken(request):
+def getUserFromToken(request):
     serializer = UserSerializer(request.user)
     if serializer:
         return Response(serializer.data)
