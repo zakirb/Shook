@@ -15,13 +15,13 @@ const ShakeList = (data) => {
 
 
   return (
-      <Col className="center-align column" s={6}>
-        <h4>This is a ShakeList</h4>
-        <div className='shake-list'>
+      <Col className="center-align column shake-list" m={4} s={12}>
+        {/* <h4>This is a ShakeList</h4>
+        <div className='shake-list'> */}
           <Collapsible popout >
             {shakes}
           </Collapsible>
-        </div>
+        {/* </div> */}
       </Col>
   )
 

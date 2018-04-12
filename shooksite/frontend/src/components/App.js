@@ -36,7 +36,6 @@ const App = () => (
           <Home/>
         ))} />
       <Route path = "/profile" component={Profile} />
-      <Route path = '/shakelist' component={ShakeList} />
       </div>
     </Router>
 );

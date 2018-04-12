@@ -32,31 +32,24 @@ class Profile extends Component {
 
      return this.state.userId ? (
       <div>
-        <Row>
-          <Col s={3}>
-            <DataProvider endpoint="/api/shakes/"
-                          render={(data) => <ShakeList data={data} user={this.state} />} />
-          </Col>
-          <Col s={3}>
-            <DataProvider endpoint="/api/shakes/"
-                          render={(data) => <ShakeList data={data} user={this.state} />} />
-          </Col>
-
-          <Col s={4}>
+        <Row className='center-align'>
+          <Col m={4} s={12}>
             <UserBadge user={this.state} />
-
           </Col>
-          <Col s={3}>
-            <StatusEditForm />
-          </Col>
+          <DataProvider endpoint="/api/shakes/"
+                          render={(data) => <ShakeList className='shake-list' data={data} user={this.state} />} />
 
+          <DataProvider endpoint="/api/shakes/"
+                          render={(data) => <ShakeList className='shake-list' data={data} user={this.state} />} />
         </Row>
-        <Button floating fab='horizontal' icon='mode_edit' className='red' large style={{bottom: '60px', right: '60px'}}>
-          <Button floating icon='insert_chart' className='red'/>
-          <Button floating icon='format_quote' className='yellow darken-1'/>
-          <Button floating icon='publish' className='green'/>
-          <Button floating icon='attach_file' className='blue'/>
-        </Button>
+        <Row>
+          <Button floating fab='horizontal' icon='mode_edit' className='red' large style={{bottom: '60px', right: '60px'}}>
+            <Button floating icon='insert_chart' className='red'/>
+            <Button floating icon='format_quote' className='yellow darken-1'/>
+            <Button floating icon='publish' className='green'/>
+            <Button floating icon='attach_file' className='blue'/>
+          </Button>
+        </Row>
       </div>
     ) : (
       <p>Loading...</p>
