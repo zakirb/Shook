@@ -48,7 +48,7 @@ render () {
             </Col>
             <Col s={6}>
               <Card className='center'>
-                <h3>{props.data.acceptor}</h3>
+                <h3>{this.props.data.acceptor}</h3>
               </Card>
             </Col>
           </Row>
@@ -68,7 +68,7 @@ render () {
                 <Row>
                   <StatusEditForm data={this.props.data} userId={this.state.userId}/>
                 </Row>
-                <Button waves='light'>Complete this Shake!</Button>
+                <Button className='link-button' waves='light'>Complete this Shake!</Button>
                 <br />
                 <Button className='link-button' waves='light'>Delete this Shake</Button>
                 <br />

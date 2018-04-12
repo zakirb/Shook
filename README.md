@@ -22,8 +22,12 @@ Jackie is mid twenties and hangs with a very unreliable and immature crowd.  She
 2) Zakir's User Story
 * Zakir's Acceptance Criteria
 
-3) Scott's User Story
-* Scott's Acceptance Criteria
+#### Training Partner for the Big Race
+Sally and her friend Randy both thought it would be fun to run a marathon. Sally signed up for the race and started training every day. Two weeks before the race, Randy tells her that he never signed up and says “good luck with the race!” Sally wishes there was some way she could hold Randy accountable so she didn’t have to run the race by herself. An app like Shook would be the perfect solution for someone in Sally's position who wants to make sure she has a running partner for the big race.
+* Sally can create an agreement with a friend and track the status of the agreement
+* Before allowing one person (Randy) to change or delete the agreement, the other person must first approve the change
+* Sally can view her past agreements with all her friends
+
 
 #### Keeping a household in working order
 > "As a **mother of 3 teenage boys**, I want an app that will **keep a strict record of the chores my boys said they'd do** because I want to **reinforce accountability** while also maintaining a nice, clean house."
