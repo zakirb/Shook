@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from 'axios';
 import StatusEditForm from './StatusEditForm';
 import auth from '../auth';
+import ShakeItem from './ShakeItem';
 
 class ShakeDetail extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class ShakeDetail extends Component {
     this.state = {
       id: '',
       proposer: props.data.proposer,
-      acceptor: props.data.acceptor
+      acceptor: props.data.acceptor,
+      userId: ''
     }
   }
 
@@ -20,8 +22,10 @@ class ShakeDetail extends Component {
     auth.getUser((res) => {
       console.log('SHAKE DETAIL USER', res)
       this.setState({
-        userId:res.id
+        userId: res.id,
+
       })
+      console.log("user id", serId)
     })
 
     if (this.props.data.proposer === this.props.userId) {
@@ -87,18 +91,26 @@ render () {
             <Col s={2}></Col>
             <Col s={8}>
               <Card className='center'>
-                <h4>Shake Proposal</h4>
+                <h4>Proposal</h4>
                 <p className='shakeproposal'>
                   {this.props.data.proposal}
                 </p>
-                <h4>Shake Description</h4>
+                <h4>Description</h4>
                 <p className='shakedescription'>
                   {this.props.data.description}
+                </p>
+                <h4>Current Status</h4>
+                <p className='shakestatus'>
+                  {this.props.data.status}
                 </p>
                 <Row>
                   <StatusEditForm data={this.props.data} userId={this.state.userId}/>
                 </Row>
 
+                {/*<Button waves='light'>Complete this Shake!</Button>
+                <br />
+                <Button waves='light'>Delete this Shake</Button>*/}
+                <br />
                 <Link to='/profile'>
                   <Button className='link-button' waves='light'> Back to Profile </Button>
                 </Link>
