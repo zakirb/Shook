@@ -48,7 +48,7 @@ class Profile extends Component {
         </Row>
         <Row>
           <Link id='propose-shake-link' to={'/proposeshake/'} >
-            <Button floating fab='horizontal' icon='add_circle' className='blue-grey darken-2' large style={{bottom: '200px', right: '200px'}}>
+            <Button floating fab='horizontal' icon='add_circle' className='blue-grey darken-2' large >
             </Button>
           </Link>
         </Row>

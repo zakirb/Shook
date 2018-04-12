@@ -14,7 +14,8 @@ class ShakeDetail extends Component {
       id: '',
       proposer: props.data.proposer,
       acceptor: props.data.acceptor,
-      userId: ''
+      userId: '',
+      username:''
     }
   }
 
@@ -100,10 +101,6 @@ render () {
                 <h4>Description</h4>
                 <p className='shakedescription'>
                   {this.props.data.description}
-                </p>
-                <h4>Current Status</h4>
-                <p className='shakestatus'>
-                  {this.props.data.status}
                 </p>
                 <Row>
                   <StatusEditForm data={this.props.data} userId={this.state.userId}/>
