@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import {Row, Col, Button, Icon, Link} from "react-materialize";
+import {Row, Col, Button, Icon} from "react-materialize";
+import { Link } from 'react-router-dom';
 import ShakeList from './ShakeList';
 import UserBadge from './UserBadge';
 import DataProvider from './DataProvider';
@@ -46,10 +47,10 @@ class Profile extends Component {
                           render={(data) => <ShakeList className='shake-list' data={data} user={this.state} title={solo}  />} />
         </Row>
         <Row>
-          {/* <Link to={`/shakes/`} > */}
-            <Button floating fab='horizontal' icon='add' className='blue-grey darken-2' large style={{bottom: '200px', right: '200px'}}>
+          <Link id='propose-shake-link' to={'/proposeshake/'} >
+            <Button floating fab='horizontal' icon='add_circle' className='blue-grey darken-2' large style={{bottom: '200px', right: '200px'}}>
             </Button>
-          {/* </Link> */}
+          </Link>
         </Row>
       </div>
     ) : (

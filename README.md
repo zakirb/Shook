@@ -15,21 +15,17 @@ By [Zakir Butte](http://www.github.com/zakirb), [Scott Molsness](https://github.
 ***
 ### User Stories
 
-## Accountability Amongst Your Social Groups
+## Accountability Amongst Your Social Groups (Mike)
 Jackie is mid twenties and hangs with a very unreliable and immature crowd.  She is constantly dealing with the irresponsibilities of her friends. Examples being: paying for friends when they “forgot” their wallet, waiting around when they don’t remember having scheduled a meetup or dealing with statements that are just plain wrong.  Shook allows her to log those interactions with the ‘friends’ acknowledgement, allowing Jackie to prove her case whenever a disagreement from the past arises.  Jackie can gain a peace of mind over the argument and move on to more enjoyable endeavors.
-* Mike's Acceptance Criteria - blah
 
-2) Zakir's User Story
-* Zakir's Acceptance Criteria
-
-#### Training Partner for the Big Race
+#### Training Partner for the Big Race (Scott)
 Sally and her friend Randy both thought it would be fun to run a marathon. Sally signed up for the race and started training every day. Two weeks before the race, Randy tells her that he never signed up and says “good luck with the race!” Sally wishes there was some way she could hold Randy accountable so she didn’t have to run the race by herself. An app like Shook would be the perfect solution for someone in Sally's position who wants to make sure she has a running partner for the big race.
 * Sally can create an agreement with a friend and track the status of the agreement
 * Before allowing one person (Randy) to change or delete the agreement, the other person must first approve the change
 * Sally can view her past agreements with all her friends
 
 
-#### Keeping a household in working order
+#### Keeping a household in working order (Daniel)
 > "As a **mother of 3 teenage boys**, I want an app that will **keep a strict record of the chores my boys said they'd do** because I want to **reinforce accountability** while also maintaining a nice, clean house."
 
 Acceptance Criteria
@@ -67,11 +63,23 @@ Connecting Django and React was a harder task than anticipated. The Shook team s
 ##### Day 3 - React Router + Token Authentication
 Another intense day of connectivity issues! This time, the team was dealing with token authentication and React Router. While half the developers spent their time testing different solutions for routing, the other half built out the base components and the 'Shake' model. Albeit stressful, the team accomplished all the goals laid out in the scrum meeting beforehand. For take home, the goals were to fine tune the routing, add login and sign up functionality, and add wireframed styling to the components.
 
-##### Day 4 - Lorem Ipsum
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis cursus egestas mauris, non aliquet nunc feugiat eu. Sed pretium fringilla enim, ut laoreet dolor porttitor id. Nullam volutpat odio nibh, ut finibus quam rhoncus vitae. Donec volutpat sodales nisl. Duis dapibus mi eget egestas ornare. Sed libero diam, ullamcorper quis turpis et, tincidunt aliquet massa. Phasellus condimentum vulputate lobortis. Curabitur convallis rutrum eros, ut convallis dui faucibus sed. Integer tortor dolor, vulputate id neque ac, interdum euismod metus. Phasellus eget ornare erat. Mauris a quam in massa tincidunt rhoncus ut nec lectus. Cras ac nulla sed nulla venenatis imperdiet.
+##### Day 4 - Rendering The Data
+The hurdle for day 4 was writing and reading from the database. Using a Data Provider component that served a data object from a passed down endpoint prop, the team slowly connected each component to have access to our User and Shake data. Now with data connected, the team can focus on rendering and manipulating the data.
 
-##### Day 5 - Lorem Ipsum
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis cursus egestas mauris, non aliquet nunc feugiat eu. Sed pretium fringilla enim, ut laoreet dolor porttitor id. Nullam volutpat odio nibh, ut finibus quam rhoncus vitae. Donec volutpat sodales nisl. Duis dapibus mi eget egestas ornare. Sed libero diam, ullamcorper quis turpis et, tincidunt aliquet massa. Phasellus condimentum vulputate lobortis. Curabitur convallis rutrum eros, ut convallis dui faucibus sed. Integer tortor dolor, vulputate id neque ac, interdum euismod metus. Phasellus eget ornare erat. Mauris a quam in massa tincidunt rhoncus ut nec lectus. Cras ac nulla sed nulla venenatis imperdiet.
+##### Day 5 - Styling and Logic
+Although the Shook team had full connectivity from the backend to the frontend, displaying the data in a meaningful and styled way was a whole other story. Half the team spent the day dedicated to ensuring the components look sleek while the other half continued to work out rendering logic.
 
 ##### Day 6 - Final Features + Deploy
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis cursus egestas mauris, non aliquet nunc feugiat eu. Sed pretium fringilla enim, ut laoreet dolor porttitor id. Nullam volutpat odio nibh, ut finibus quam rhoncus vitae. Donec volutpat sodales nisl. Duis dapibus mi eget egestas ornare. Sed libero diam, ullamcorper quis turpis et, tincidunt aliquet massa. Phasellus condimentum vulputate lobortis. Curabitur convallis rutrum eros, ut convallis dui faucibus sed. Integer tortor dolor, vulputate id neque ac, interdum euismod metus. Phasellus eget ornare erat. Mauris a quam in massa tincidunt rhoncus ut nec lectus. Cras ac nulla sed nulla venenatis imperdiet.
+The final day of the cohort! The team spent the day making final tweaks to the logic and styling of the site and deploying to Heroku.
+
+***
+
+### Next Steps
+The initial turnaround time for this project was a mere 7 days so not all the features made it into the soft deploy. However, there are a few stretch goals that are on deck to be implemented:
+
+* Have shakes between multiple users
+* Data visualization
+* More flexibility with shake creation / management
+* Gamify the app
+* Add user search function
+* Add social networking
