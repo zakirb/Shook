@@ -1,8 +1,14 @@
-
 body {
   color: #D8DBE2;
-  background-image: url('./fist_bump.png')
+  background-image: url('./fist_bump.png');
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
+
+main {
+  flex: 1 0 auto;
+ }
 
 #app {
   font-family: 'Chivo', sans-serif;
@@ -18,6 +24,8 @@ body {
 
 .navlinks {
   display: inline-block;
+  font-size: 20px;
+  font-weight: 200;
 }
 
 .brand-logo {
@@ -44,17 +52,28 @@ body {
   padding: 0;
 }
 
-.slide-two {
-  color: black;
-}
-
 .home-button {
   margin-top: 40px;
   border-radius: 10px;
+  border: 2px solid #373F51;
   height: 70px;
   width: 160px;
+  font-size: 20px;
+  font-weight: 200;
 }
 
 #footer {
   background-color: #373F51;
+  margin-bottom: -15px;
+  padding: 10px;
+  text-align: center;
+}
+
+.caption.right-align > h3 {
+  color: black;
+}
+
+.footerlink {
+  font-size: 20px;
+  color: white;
 }

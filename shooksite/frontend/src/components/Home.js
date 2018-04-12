@@ -26,11 +26,6 @@ class Home extends Component {
               </Link>
             </div>
         </Col>
-        <Footer id='footer' copyrights="&copy 2015 Copyright Text"
-          className='example'
-          >
-            <h5 className="white-text">Footer Content</h5>
-        </Footer>
       </div>
     )
   }
