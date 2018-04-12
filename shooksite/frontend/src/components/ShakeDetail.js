@@ -58,11 +58,11 @@ render () {
               <Card className='center'>
                 <h4>Shake Proposal</h4>
                 <p className='shakeproposal'>
-                  Lorem ipsum dolor amet air plant quinoa tacos, woke neutra post-ironic bespoke unicorn everyday carry etsy. Cred meh fam, ugh whatever meggings jean shorts sriracha. Cronut adaptogen farm-to-table fam enamel pin brooklyn everyday carry unicorn pork belly DIY poutine humblebrag. Forage yr photo booth cornhole, chambray lyft pinterest aesthetic keytar cold-pressed VHS ramps DIY. Next level crucifix gastropub kale chips snackwave, asymmetrical tumeric synth chambray. Forage aesthetic banjo roof party echo park. Food truck succulents squid mixtape, knausgaard slow-carb godard live-edge.
+                  {this.props.data.proposal}
                 </p>
                 <h4>Shake Description</h4>
                 <p className='shakedescription'>
-                  Lorem ipsum dolor amet air plant quinoa tacos, woke neutra post-ironic bespoke unicorn everyday carry etsy. Cred meh fam, ugh whatever meggings jean shorts sriracha. Cronut adaptogen farm-to-table fam enamel pin brooklyn everyday carry unicorn pork belly DIY poutine humblebrag. Forage yr photo booth cornhole, chambray lyft pinterest aesthetic keytar cold-pressed VHS ramps DIY. Next level crucifix gastropub kale chips snackwave, asymmetrical tumeric synth chambray. Forage aesthetic banjo roof party echo park. Food truck succulents squid mixtape, knausgaard slow-carb godard live-edge.
+                  {this.props.data.description}
                 </p>
                 <h6>Shake Status</h6>
                 <Row>
