@@ -9,8 +9,8 @@ class StatusEditForm extends Component {
     console.log(props)
     this.state = {
       proposer_status: "accepted",
-      acceptor_status: "accepted",
-      id: 4
+      acceptor_status: "abandoned",
+      id: 2
     }
   }
 
@@ -37,7 +37,7 @@ class StatusEditForm extends Component {
     console.log('this is the shake status', shakeStatus)
     const conf = {
       method: 'PUT',
-      url: '/api/shakes/edit/',
+      url: `/api/shakes/${id}/`,
       data: shakeStatus,
       headers: {
         Authorization: "Token " + `${token}`
@@ -58,12 +58,12 @@ class StatusEditForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <Row>
-          <Input s={12} type='select' name='acceptor_status' onChange={this.handleChange} defaultValue={'---'}>
+          <Input s={12} type='select' name='proposer_status' onChange={this.handleChange} defaultValue={'---'}>
             <option value={'---'} disabled>---</option>
             <option value={'completed'}>Completed</option>
             <option value={'abandoned'}>Abandoned</option>
           </Input>
-          <input type='hidden' value={4} name='id' />
+          <input type='hidden' value={id} name='id' />
         </Row>
         <Row className="control">
           <button type="submit" className="button is-info">Edit Status</button>

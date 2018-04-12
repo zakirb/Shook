@@ -31,49 +31,24 @@ class ShakeViewSet(generics.ListCreateAPIView):
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class TestViews:
-    print('This is the test view')
-
-# class ShakeStatusEdit(generics.ListCreateAPIView):
-#
-#     queryset = Shake.objects.all()
-#     serializer_class = ShakeSerializer
-#
-#     # def put(self, request, *args, **kwargs):
-#     #     return self.update(request, *args, **kwargs)
-#
-#
-#     # queryset = Shake.objects.all()
-#     # serializer_class = ShakeSerializer
-#     #
-#     def put(self, request):
-#         print('you hit the put route')
-#         serializer = ShakeSerializer(data=request.data)
-#         if serializer.is_valid():
-#             shake = serializer.save()
-#             print('after .is_valid()', shake)
-#             if shake:
-#                 print('after is shake', shake)
-#                 return Response(serializer.data, status=status.HTTP_201_CREATED)
-#
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ShakeDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Shake.objects.all()
     serializer_class = ShakeSerializer
 
-    def put(self, request):
-        print('you hit the put route')
-        serializer = ShakeSerializer(data=request.data)
-        print('this is the serializer', serializer)
+    def put(self, request, pk):
+        shake = Shake.objects.get(pk=pk)
+        serializer = ShakeEditSerializer(shake, data=request.data)
         if serializer.is_valid():
-            shake = serializer.save()
-            print('after .is_valid()', shake)
-            if shake:
-                print('after is shake', shake)
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-
+            serializer.save()
+            if (shake.proposer_status == "abandoned" and shake.acceptor_status == "abandoned"):
+                shake.delete()
+                return Response(status=status.HTTP_200_OK)
+            return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
 
 
 class LeadDetail(generics.RetrieveUpdateDestroyAPIView):
