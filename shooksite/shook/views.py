@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 from shook.models import Lead, Shake
-from shook.serializers import LeadSerializer, UserSerializer, ShakeSerializer, ShakeEditSerializer
+from shook.serializers import LeadSerializer, UserSerializer, ShakeSerializer
 from rest_framework import generics, permissions, viewsets, status
 from rest_framework.response import Response
 from django.contrib.auth.models import User
@@ -14,20 +14,17 @@ from rest_framework.generics import RetrieveUpdateDestroyAPIView
 from rest_framework.decorators import api_view, permission_classes
 
 
-class LeadListCreate(generics.ListCreateAPIView):
-    queryset = Lead.objects.all()
-    serializer_class = LeadSerializer
-
 class ShakeViewSet(generics.ListCreateAPIView):
     queryset = Shake.objects.all()
     serializer_class = ShakeSerializer
 
     def post(self, request):
+        print('IN THE POST')
         serializer = ShakeSerializer(data=request.data)
         if serializer.is_valid():
             shake = serializer.save()
             if shake:
-                return Response(serializer.data, status=status.HTTP_201_CREATED, headers=header)
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -36,9 +33,18 @@ class ShakeDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Shake.objects.all()
     serializer_class = ShakeSerializer
 
-    def put(self, request, pk):
+    def retrieve(self, request, pk):
+        print('IN THE GET DETAIL ROUTe')
         shake = Shake.objects.get(pk=pk)
-        serializer = ShakeEditSerializer(shake, data=request.data)
+        serializer = ShakeSerializer(shake)
+        username = request.user.username
+        header = {"username" : f'{username}'}
+        return Response(serializer.data, headers=header)
+
+    def put(self, request, pk):
+        print('IN THE PUT ROUTE')
+        shake = Shake.objects.get(pk=pk)
+        serializer = ShakeSerializer(shake, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             if (shake.proposer_status == "abandoned" and shake.acceptor_status == "abandoned"):
@@ -47,13 +53,6 @@ class ShakeDetail(generics.RetrieveUpdateDestroyAPIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-
-
-
-class LeadDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Lead.objects.all()
-    serializer_class = LeadSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
