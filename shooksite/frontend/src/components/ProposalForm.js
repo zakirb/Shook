@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Navbar, NavItem, Icon, Dropdown, Button } from "react-materialize";
+import { Navbar, NavItem, Icon, Dropdown, Button, Input } from "react-materialize";
 import axios from 'axios';
+import auth from '../auth';
 
 class ProposalForm extends Component {
   constructor(props) {
@@ -11,11 +12,38 @@ class ProposalForm extends Component {
       acceptor: "",
       description: "",
       type: "",
-      proposal: ""
+      proposal: "",
+      otherUsers:[]
     }
   }
+
+  componentDidMount() {
+    let token = localStorage.token
+    auth.getUser( (res) => {
+      this.setState({
+        proposer:res.id
+      })
+    })
+    axios({
+      method:'GET',
+      url:'/api/users',
+      headers: {
+        Authorization: "Token " + `${token}`
+      }
+    }).then( (res) => {
+      console.log('RESPONSE', res)
+      this.setState({
+        otherUsers:res.data
+      })
+    })
+    .catch((err) => {
+      console.log('ERROR', err)
+    })
+  }
+
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+    console.log(this.state)
   };
 
   handleSubmit = e => {
@@ -28,7 +56,7 @@ class ProposalForm extends Component {
       url: '/api/shakes/',
       data: Shake,
       headers: {
-        Authorization: token
+        Authorization: "Token " + `${token}`
       }
     };
     axios(conf).then( (res) => {
@@ -43,22 +71,23 @@ class ProposalForm extends Component {
 
 
   render() {
-    const { proposer, acceptor, description, type, proposal } = this.state;
+    const { proposer, acceptor, description, type, proposal, otherUsers } = this.state;
+
+    let acceptorOptions = otherUsers.map((user) => {
+      return (<option value={user.id}>{user.username}</option>)
+    })
+    
     return (
       <div className="column">
         <form onSubmit={this.handleSubmit}>
-
-          <div className="field">
-            <label className="label">proposer id</label>
-            <div className="control">
-              <input className="input" type="text" name="proposer" onChange={this.handleChange} value={proposer} required />
-            </div>
-          </div>
-
+          <input className="input" type="hidden" name="proposer" onChange={this.handleChange} value={proposer} required />
           <div className="field">
             <label className="label">acceptor id</label>
             <div className="control">
-              <input className="input" type="text" name="acceptor" onChange={this.handleChange} value={acceptor} required />
+              <Input type='select' name="acceptor" onChange={this.handleChange} defaultValue={'---'}>
+                <option value={'---'} disabled>---</option>
+                {acceptorOptions}
+              </Input>
             </div>
           </div>
 

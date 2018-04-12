@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import auth from '../auth';
 import ShakeDetail from './ShakeDetail';
 
+
+var backgroundClass = ''
+
 class ShakeItem extends Component {
   constructor(props){
     super(props)
@@ -38,18 +41,26 @@ class ShakeItem extends Component {
         })
       })
     }
+
+    console.log('hey this is the status', this.props.data)
+
+    if (this.props.data.status === 'proposed') {
+      backgroundClass = 'shake-item proposed'
+    } else if (this.props.data.status === 'completed') {
+      backgroundClass = 'shake-item completed'
+    } else {
+      backgroundClass = 'shake-item'
+    }
   }
 
   render() {
 
     return (this.state.acceptor && this.state.proposer) ? (
-      <CollapsibleItem className='shake-item' header={this.state.proposer + ' vs. ' + this.state.acceptor} icon='public'>
+      <CollapsibleItem className={backgroundClass} header={this.state.proposer + ' vs. ' + this.state.acceptor} icon='public'>
         <div>
-          <p>The {this.props.data.type}:</p>
-          <p>{this.props.data.proposal}</p>
-      <Link to={`/shakes/${this.props.data.id}`} >
-          <Button waves='light'> View Details </Button>
-        </Link>
+          <Link to={`/shakes/${this.props.data.id}`} >
+            <Button waves='light'> View Details </Button>
+          </Link>
         </div>
       </CollapsibleItem>
     ) : (

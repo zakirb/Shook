@@ -58,23 +58,6 @@ const auth = {
         console.log('ERROR', err)
       })
     },
-    getOtherUser: (id, cb) => {
-      var token = localStorage.token
-      axios({
-        method: 'GET',
-        url: "/api/users/" + `${id}`,
-        headers: {
-          Authorization: "Token " + `${token}`
-        }
-      })
-      .then( (res) => {
-        // console.log('RETRIEVED OTHER USER', res)
-        cb(res.data)
-      })
-      .catch( (err) => {
-        console.log('ERROR GETTING OTHER USER', err)
-      })
-    },
 
     getOtherUser: (id, cb) => {
       var token = localStorage.token

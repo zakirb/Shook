@@ -23,9 +23,13 @@ class DataProvider extends Component {
       endpoint = this.props.endpoint
     }
     console.log('ENDPOINT', endpoint)
+    let token = localStorage.token
     axios({
       method: 'GET',
-      url: endpoint
+      url: endpoint,
+      headers: {
+        Authorization: "Token " + `${token}`
+      }
     })
     .then( (response) => {
       if (response.status !== 200) {

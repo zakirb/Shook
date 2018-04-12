@@ -11,20 +11,21 @@ class Hero extends Component {
     return (
       <Slider indicators={false}>
         <Slide
-          // src="http://lorempixel.com/580/250/nature/1"
+          src="../static/frontend/images/handshake.jpg"
           title="1. Make a Shake">
-          Hold your friends and family accountable to their word.
+          Hold your friends and family accountable.
         </Slide>
-        <Slide
-          // src="http://lorempixel.com/580/250/nature/2"
+        <Slide className='black-text'
+          src="../static/frontend/images/schedule.jpg"
           title="2. Enforce the Shake"
-          placement="left">
-          Don't let your friends renege on a bet. Don't let your kids get out of the chores they said they'd do.
+          placement="right">
+          Don't let your friends renege on a bet. <br />
+          Don't let your kids get out of the chores they said they'd do.
         </Slide>
         <Slide
-          // src="http://lorempixel.com/580/250/nature/3"
+          src="../static/frontend/images/bonfire.jpg"
           title="3. Rinse + Repeat"
-          placement="right">
+          placement="left">
           But most of all, have some fun.
         </Slide>
       </Slider>

@@ -57,10 +57,12 @@ render () {
             <Col s={6}>
               <Card className='center'>
                 <h3>{this.props.data.acceptor}</h3>
+
                 <h4>Shake Current Status</h4>
                 <p className='shakestatus'>
                   {this.props.data.acceptor_status}
                 </p>
+
               </Card>
             </Col>
           </Row>
@@ -83,12 +85,14 @@ render () {
                 <Row>
                   <StatusEditForm data={this.props.data} userId={this.state.userId}/>
                 </Row>
+
                 {/*<Button waves='light'>Complete this Shake!</Button>
                 <br />
                 <Button waves='light'>Delete this Shake</Button>*/}
+
                 <br />
                 <Link to='/profile'>
-                  <Button waves='light'> Back to Profile </Button>
+                  <Button className='link-button' waves='light'> Back to Profile </Button>
                 </Link>
               </Card>
             </Col>
