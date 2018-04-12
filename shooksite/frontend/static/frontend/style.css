@@ -100,8 +100,28 @@ main {
   text-align: center;
 }
 
+.caption.center-align > h3 {
+  color: white;
+}
+
+.caption.center-align > h5 {
+  color: white;
+}
+
 .caption.right-align > h3 {
-  color: black;
+  color: #white;
+}
+
+.caption.right-align > h5 {
+  color: #white;
+}
+
+.caption.left-align > h3 {
+  color: #373F51;
+}
+
+.caption.left-align > h5 {
+  color: #373F51;
 }
 
 .footerlink {
