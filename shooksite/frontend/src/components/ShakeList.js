@@ -13,6 +13,8 @@ const ShakeList = (data) => {
     }
   })
 
+  let globalShakesClean = globalShakes.filter( item => item !== undefined)
+
   console.log(globalShakes)
 
   let personalShakes = data.data.map( (item, index) => {
@@ -21,12 +23,15 @@ const ShakeList = (data) => {
     }
   })
 
+
+
+  console.log(personalShakes)
+
   return (data.title.id === 'global') ?
   (
     <Col className="center-align column shake-list" m={4} s={12}>
       <Collection>
-        {/* {globalShakes} */}
-        <CollectionItem>hey</CollectionItem>
+        {globalShakesClean}
       </Collection>
     </Col>
   ) : (
