@@ -16,12 +16,10 @@ const UserBadge = data => {
   return (
     <Col m={4} s={12}>
       <Card className='small'
-        header={<CardTitle >{data.user.username}</CardTitle>}
-        actions={['# of Shakes: ' + count.length + ' ']}
+        header={<CardTitle image='../../static/frontend/shaking.png'>{data.user.username}</CardTitle>}
         >
         <div>
-          <h2>{data.user.username}</h2>
-          <p>hey there</p>
+          <h4>{'# of Shakes: ' + count.length + ' '}</h4>
         </div>
       </Card>
     </Col>
