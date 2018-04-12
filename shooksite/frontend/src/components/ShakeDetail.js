@@ -33,7 +33,7 @@ const ShakeDetail = (props) => {
             </Col>
             <Col s={6}>
               <Card className='center'>
-                <h3>User 2</h3>
+                <h3>{props.data.acceptor}</h3>
               </Card>
             </Col>
           </Row>
@@ -42,20 +42,17 @@ const ShakeDetail = (props) => {
             <Col s={8}>
               <Card className='center'>
                 <h4>Shake Proposal</h4>
-                <p className='shakeproposal'>
-                  Lorem ipsum dolor amet air plant quinoa tacos, woke neutra post-ironic bespoke unicorn everyday carry etsy. Cred meh fam, ugh whatever meggings jean shorts sriracha. Cronut adaptogen farm-to-table fam enamel pin brooklyn everyday carry unicorn pork belly DIY poutine humblebrag. Forage yr photo booth cornhole, chambray lyft pinterest aesthetic keytar cold-pressed VHS ramps DIY. Next level crucifix gastropub kale chips snackwave, asymmetrical tumeric synth chambray. Forage aesthetic banjo roof party echo park. Food truck succulents squid mixtape, knausgaard slow-carb godard live-edge.
-                </p>
+                <p className='shakeproposal'>{props.data.proposal}</p>
                 <h4>Shake Description</h4>
-                <p className='shakedescription'>
-                  Lorem ipsum dolor amet air plant quinoa tacos, woke neutra post-ironic bespoke unicorn everyday carry etsy. Cred meh fam, ugh whatever meggings jean shorts sriracha. Cronut adaptogen farm-to-table fam enamel pin brooklyn everyday carry unicorn pork belly DIY poutine humblebrag. Forage yr photo booth cornhole, chambray lyft pinterest aesthetic keytar cold-pressed VHS ramps DIY. Next level crucifix gastropub kale chips snackwave, asymmetrical tumeric synth chambray. Forage aesthetic banjo roof party echo park. Food truck succulents squid mixtape, knausgaard slow-carb godard live-edge.
-                </p>
-                <h6>Shake Status</h6>
-                <Button waves='light'>Complete this Shake!</Button>
+                <p className='shakedescription'>{props.data.description}</p>
+                <h6>Shake Status: </h6>
+                <p>{props.data.status}</p>
+                <Button className='link-button' waves='light'>Update this Shake!</Button>
                 <br />
-                <Button waves='light'>Delete this Shake</Button>
+                <Button className='link-button' waves='light'>Delete this Shake</Button>
                 <br />
                 <Link to='/profile'>
-                  <Button waves='light'> Back to Profile </Button>
+                  <Button className='link-button' waves='light'> Back to Profile </Button>
                 </Link>
               </Card>
             </Col>

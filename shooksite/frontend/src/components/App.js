@@ -37,10 +37,6 @@ const App = () => (
         ))} />
       <Route path = "/profile" component={Profile} />
       <Route path = '/shakelist' component={ShakeList} />
-      <Link to='/shakes/4'>CLICK ME</Link>
-      {/* <DataProvider endpoint="api/shook/"
-                    render={(data) => <Table data={data} />} /> */}
-      {/* <Form endpoint="api/shook/" /> */}
       </div>
     </Router>
 );

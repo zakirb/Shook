@@ -30,3 +30,8 @@ body {
   padding: 5px;
   text-transform: uppercase;
 }
+
+.link-button {
+  margin: 10px;
+  border-radius: 10px;
+}
