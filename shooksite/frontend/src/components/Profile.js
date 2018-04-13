@@ -47,8 +47,8 @@ class Profile extends Component {
                           render={(data) => <ShakeList className='shake-list' data={data} user={this.state} title={solo}  />} />
         </Row>
         <Row>
-          <Link id='propose-shake-link' to={'/proposeshake/'} >
-            <Button floating fab='horizontal' icon='add_circle' className='blue-grey darken-2' large >
+          <Link  to='/proposeshake' >
+            <Button floating fab='horizontal' icon='add_circle' className='blue-grey darken-2 new_shake' large >
             </Button>
           </Link>
         </Row>
