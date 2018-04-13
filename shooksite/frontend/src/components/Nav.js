@@ -9,20 +9,27 @@ const Nav = () => {
 
   let conditionalNav = (auth.loggedIn()) ? (
     <span>
+      <Link id='propose-shake-link' className='navlinks' to='/proposeshake' onClick={() => {
+        document.getElementById('propose-shake-link').style('display:none')
+      }} >Make a Shake</Link>
       <Link id="logout-link" className='navlinks' onClick={() => {
         auth.logout()
         document.getElementById('logout-link').style('display:none')
       }} className="navlinks" to="/">Logout</Link>
     </span>
     ) : (
-      <Link id="login-link" className="navlinks" to="/login">Login</Link>
+      <Link id="login-link" onClick={ () => {
+        document.getElementById('login-link').style('display:none')
+      }} className="navlinks" to="/login">Login</Link>
     )
 
 
   return (
     <div>
       <Navbar brand={logo} right id="navbar">
-        <Link id="home-link" className="navlinks" to="/">Home</Link>
+        <Link id="home-link" onClick={ () => {
+          document.getElementById('home-link').style('display:none')
+        }} className="navlinks" to="/">Home</Link>
         {conditionalNav}
       </Navbar>
     </div>

@@ -69,6 +69,7 @@ main {
   padding: 0;
 }
 
+
 .home-button {
   margin-top: 40px;
   border-radius: 10px;
@@ -139,4 +140,10 @@ main {
 
 #nav-mobile .navlinks:hover {
   background-color: #DAA49A;
+}
+
+@media (min-width: 600px) {
+  .new_shake {
+    display: none;
+  }
 }

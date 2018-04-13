@@ -27,7 +27,7 @@ const App = () => (
       <Route path='/proposeshake' component={ProposalForm} />
       <Route path='/shakes/:id' component={(params) => (
         <DataProvider endpoint="/api/shakes/" params={params} render={
-                      (data, user) => (<ShakeDetail data={data} user={user}/>)
+                      (data) => (<ShakeDetail data={data}/>)
                     } /> ) }/>
       <Route exact path="/" render={() => (
         (auth.loggedIn()) ? (
