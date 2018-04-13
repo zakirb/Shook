@@ -1,13 +1,6 @@
 node_modules
 
 .env
-shooksite/frontend/__pycache__
-shooksite/shook/__pycache__
-shooksite/shooksite/__pycache__
-shooksite/frontend/migrations/__pycache__
-shooksite/shook/migrations/__pycache__
-shooksite/frontend/migrations/
-shooksite/shook/migrations/
 
 ### OSX ###
 .DS_Store
