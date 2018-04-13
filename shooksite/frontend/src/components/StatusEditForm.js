@@ -81,7 +81,9 @@ class StatusEditForm extends Component {
           </Input>
         </Row>
         <Row className="control">
-          <button type="submit" className="button is-info">Edit Status</button>
+          <div className='col s12 center-butt center'>
+            <button type="submit" className="btn" waves="light">Edit Status</button>
+          </div>
         </Row>
 
       </form>

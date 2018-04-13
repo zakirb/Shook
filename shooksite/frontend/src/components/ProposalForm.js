@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Navbar, NavItem, Icon, Dropdown, Button, Input } from "react-materialize";
+import { Navbar, NavItem, Icon, Dropdown, Button, Input, Row } from "react-materialize";
 import axios from 'axios';
 import auth from '../auth';
 
@@ -76,48 +76,55 @@ class ProposalForm extends Component {
     let acceptorOptions = otherUsers.map((user) => {
       return (<option value={user.id}>{user.username}</option>)
     })
-    
+
     return (
-      <div className="column">
-        <form onSubmit={this.handleSubmit}>
-          <input className="input" type="hidden" name="proposer" onChange={this.handleChange} value={proposer} required />
-          <div className="field">
-            <label className="label">acceptor id</label>
-            <div className="control">
-              <Input type='select' name="acceptor" onChange={this.handleChange} defaultValue={'---'}>
-                <option value={'---'} disabled>---</option>
-                {acceptorOptions}
-              </Input>
+      <Row>
+        <div className="col s12 m8 offset-m2 ProFormContainer">
+          <form onSubmit={this.handleSubmit}>
+            <input className="input" type="hidden" name="proposer" onChange={this.handleChange} value={proposer} required />
+
+            <div className="field">
+              <label className="label"></label>
+              <div className="control">
+                <Input type='select' name="acceptor" onChange={this.handleChange} defaultValue={'---'}>
+                  <option value={'---'} disabled>---</option>
+                  {acceptorOptions}
+                </Input>
+              </div>
             </div>
-          </div>
 
-          <div className="field">
-            <label className="label">proposal</label>
-            <div className="control">
-              <textarea className="textarea" type="text" name="proposal" onChange={this.handleChange} value={proposal} required />
+
+            <div className="field">
+
+              <div className="control">
+                <textarea className="textarea" type="text" name="proposal" onChange={this.handleChange} value={proposal} required />
+              </div>
+              <label className="label1">proposal</label>
             </div>
-          </div>
 
-          <div className="field">
-            <label className="label">type</label>
-            <div className="control">
-              <textarea className="textarea" type="text" name="type" onChange={this.handleChange} value={type} required />
+            <div className="field">
+
+              <div className="control">
+                <textarea className="textarea" type="text" name="type" onChange={this.handleChange} value={type} required />
+              </div>
+              <label className="label1">type</label>
             </div>
-          </div>
 
-          <div className="field">
-            <label className="label">description</label>
-            <div className="control">
-              <textarea className="textarea" type="text" name="description" onChange={this.handleChange} value={description} required />
+            <div className="field">
+
+              <div className="control">
+                <textarea className="textarea" type="text" name="description" onChange={this.handleChange} value={description} required />
+              </div>
+              <label className="label1">description</label>
             </div>
-          </div>
 
-          <div className="control">
-            <button type="submit" className="button is-info">Propose Shake</button>
-          </div>
+            <div className='col s12 center-butt center'>
+              <button type="submit" className="btn" waves="light">Propose Shake</button>
+            </div>
 
-        </form>
-      </div>
+          </form>
+        </div>
+      </Row>
     );
   }
 }
