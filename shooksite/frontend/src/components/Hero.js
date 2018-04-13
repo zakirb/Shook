@@ -15,17 +15,17 @@ class Hero extends Component {
           title="1. Make a Shake">
           Hold your friends and family accountable.
         </Slide>
-        <Slide className='black-text'
+        <Slide
           src="../static/frontend/images/schedule.jpg"
           title="2. Enforce the Shake"
-          placement="right">
+          placement="left">
           Don't let your friends renege on a bet. <br />
           Don't let your kids get out of the chores they said they'd do.
         </Slide>
         <Slide
           src="../static/frontend/images/bonfire.jpg"
           title="3. Rinse + Repeat"
-          placement="left">
+          placement="right">
           But most of all, have some fun.
         </Slide>
       </Slider>
