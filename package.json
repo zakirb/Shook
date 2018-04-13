@@ -7,6 +7,9 @@
     "dev": "webpack --mode development ./shooksite/frontend/src/index.js --output ./shooksite/frontend/static/frontend/main.js",
     "build": "webpack --mode production ./shooksite/frontend/src/index.js --output ./shooksite/frontend/static/frontend/main.js"
   },
+  "engines": {
+    
+  }
   "keywords": [],
   "author": "",
   "license": "ISC",
