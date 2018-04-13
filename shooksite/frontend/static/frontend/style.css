@@ -88,9 +88,28 @@ main {
   border-radius: 10px;
   color: #373F51;
 }
+
+.ProFormContainer {
+  background-color: white;
+  margin-top: 100px;
+  padding: 40px 50px!important;
+  border-radius: 10px;
+  color: #373F51!important;
+}
+
  /* forms' buttons */
 .center-butt {
   margin: 0 auto!important;
+}
+
+.textarea {
+  margin-top: 15px;
+  margin-bottom: -7px;
+}
+
+/* shake details style */
+.shakeDetails {
+  color: #373F51;
 }
 
 #footer {

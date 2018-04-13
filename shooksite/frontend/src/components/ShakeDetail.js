@@ -11,9 +11,9 @@ class ShakeDetail extends Component {
     super(props)
     console.log(props)
     this.state = {
-      id: '',
-      proposer: props.data.proposer,
-      acceptor: props.data.acceptor,
+      // id: '',
+      // proposer: props.data.proposer,
+      // acceptor: props.data.acceptor,
       userId: ''
     }
   }
@@ -71,7 +71,7 @@ class ShakeDetail extends Component {
   // }
 render () {
     return (
-      <Row>
+      <Row className="shakeDetails">
         <Col s={12}>
           <Row>
             <Col s={6}>
@@ -114,7 +114,7 @@ render () {
                 <Button waves='light'>Delete this Shake</Button>*/}
                 <br />
                 <Link to='/profile'>
-                  <Button className='link-button' waves='light'> Back to Profile </Button>
+                  <Button className='btn' waves="light"> Back to Profile </Button>
                 </Link>
               </Card>
             </Col>
