@@ -3,7 +3,6 @@ import {Row, Col, Button, Icon, Footer} from "react-materialize";
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Hero from './Hero';
 import DataProvider from './DataProvider';
-import TestCall from './TestCall';
 
 class Home extends Component {
   constructor(props) {
