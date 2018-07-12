@@ -15,17 +15,17 @@ By [Zakir Butte](http://www.github.com/zakirb), [Scott Molsness](https://github.
 ***
 ### User Stories
 
-## Accountability Amongst Your Social Groups (Mike)
+## Accountability Amongst Your Social Groups
 Jackie is mid twenties and hangs with a very unreliable and immature crowd.  She is constantly dealing with the irresponsibilities of her friends. Examples being: paying for friends when they “forgot” their wallet, waiting around when they don’t remember having scheduled a meetup or dealing with statements that are just plain wrong.  Shook allows her to log those interactions with the ‘friends’ acknowledgement, allowing Jackie to prove her case whenever a disagreement from the past arises.  Jackie can gain a peace of mind over the argument and move on to more enjoyable endeavors.
 
-#### Training Partner for the Big Race (Scott)
+#### Training Partner for the Big Race
 Sally and her friend Randy both thought it would be fun to run a marathon. Sally signed up for the race and started training every day. Two weeks before the race, Randy tells her that he never signed up and says “good luck with the race!” Sally wishes there was some way she could hold Randy accountable so she didn’t have to run the race by herself. An app like Shook would be the perfect solution for someone in Sally's position who wants to make sure she has a running partner for the big race.
 * Sally can create an agreement with a friend and track the status of the agreement
 * Before allowing one person (Randy) to change or delete the agreement, the other person must first approve the change
 * Sally can view her past agreements with all her friends
 
 
-#### Keeping a household in working order (Daniel)
+#### Keeping a household in working order
 > "As a **mother of 3 teenage boys**, I want an app that will **keep a strict record of the chores my boys said they'd do** because I want to **reinforce accountability** while also maintaining a nice, clean house."
 
 Acceptance Criteria
@@ -33,22 +33,6 @@ Acceptance Criteria
 * The Recent Shakes section allows me to find my sons easily.
 * My profile page updates when my sons complete or drop a shake.
 
-***
-### Wireframes
-
-**WIREFRAMES GO HERE**
-
-
-***
-### Models
-
-**MODELS GO HERE**
-
-
-***
-### Routes
-
-**ROUTES GO HERE**
 
 ### Daily Progress
 
